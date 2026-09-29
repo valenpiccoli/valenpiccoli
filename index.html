@@ -2,9 +2,272 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Sitio Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valen Piccoli | Sitio Oficial</title>
+    
+    <!-- IMPORTAR FUENTE DESDE GOOGLE FONTS (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #080a0f;
+            --card-bg: #121620;
+            --text-color: #e1e1e6;
+            --accent-color: #00e5ff;
+            --accent-hover: #00b8cc;
+            --border-color: #1f2a3a;
+        }
+
+        body {
+            /* APLICAR LA NUEVA FUENTE A TODA LA PÁGINA */
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 1rem 2rem 1rem;
+            background: linear-gradient(to bottom, #111a24, var(--bg-color));
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+        }
+
+        header p.subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.8rem;
+        }
+
+        /* Biografía */
+        .bio-text {
+            font-size: 1.05rem;
+            text-align: justify;
+            color: #c5c5d0;
+        }
+
+        /* Galería de Imágenes */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #a0a0b0;
+            background: #0d1117;
+        }
+
+        /* Videos de YouTube */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--border-color);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Redes Sociales */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            background-color: #161f2e;
+            color: var(--accent-color);
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent-color);
+        }
+
+        .social-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
 </head>
 <body>
-    <h1>¡Hola! Mi página web ya está en línea en GitHub Pages.</h1>
+
+    <header>
+        <h1>Valen Piccoli</h1>
+        <p class="subtitle">Cantante y Compositor Independiente</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Sección Biografía -->
+        <section id="biografia">
+            <h2>Biografía</h2>
+            <p class="bio-text">
+                Valen Piccoli es un cantante y compositor independiente de Argentina, nacido en 1999. Comenzó a componer y grabar demos a la edad de 11 años. Desde entonces, ha realizado covers y ha compuesto canciones de forma regular. En 2019 lanzó su primer sencillo <em>Aunque En Mi Mente Aún Estes</em>; que cuenta con la producción de DJ Shands, luego lanza la versión remix producida por Rayzon. En abril de 2019 lanzó <em>Azul</em>; la cual tuvo 3.9K de visitas en YouTube. En 2020 lanzó <em>Indeciso</em>; que cuenta con más de 6K de visitas en Youtube. También colaboró en canciones <em>Don't Mess With Me</em>, <em>Solo Tú</em> y <em>Falsas Promesas</em> junto a @Levy El Melódico. En el 2022 realizó su primera presentación en La Plata, luego en Quilmes, y en el 2023 y 2024 realizó diversas presentaciones por CABA y zona oeste de Buenos Aires. En 2023 también lanzó su álbum <em>Nostálgico</em>, el cual coprodujo junto a RAYZØN. En el 2025 lanzó su álbum <em>LA TORMENTA</em> con sus singles <em>APAGÓN</em>, <em>11:11</em>, <em>XTASIS</em> y <em>HÉROE</em>. En el 2026 lanza su nuevo álbum <em>ONÍRICO</em>, con temas como <em>Extracorporal</em>, <em>AMANECER</em> y <em>CASUALIDAD</em>.
+            </p>
+        </section>
+
+        <!-- Sección Galería de Imágenes -->
+        <section id="galeria">
+            <h2>Galería de Fotos</h2>
+            <p style="color: #a0a0b0; text-align: center; margin-bottom: 1.5rem;">Fotos oficiales, portadas y presentaciones:</p>
+            
+            <div class="gallery-grid">
+                <!-- Imagen 1 -->
+                <div class="gallery-item">
+                    <!-- Reemplaza 'foto1.jpg' por el nombre del archivo de tu imagen -->
+                    <img src="foto1.jpg" alt="Valen Piccoli Foto 1">
+                    <div class="gallery-caption">Álbum Onírico (2026)</div>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="gallery-item">
+                    <!-- Reemplaza 'foto2.jpg' por el nombre del archivo de tu imagen -->
+                    <img src="foto2.jpg" alt="Valen Piccoli Foto 2">
+                    <div class="gallery-caption">En vivo en CABA</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Videos de YouTube -->
+        <section id="videos">
+            <h2>Videos Destacados</h2>
+            <p style="color: #a0a0b0; text-align: center; margin-bottom: 1.5rem;">Reproduce los temas directamente desde aquí:</p>
+            
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-container">
+                    <iframe src="https://youtu.be/X9zUW8deTrY?si=Qdw8AczLL2EGV8MN" title="APAGÓN (Music Video)" allowfullscreen></iframe>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-container">
+                    <iframe src="https://youtu.be/jkTm1rY8dV8?si=d9WYGAWkjN0M2Unc" title="XTASIS (Music Video)" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Redes Sociales -->
+        <section id="redes">
+            <h2>Redes Sociales y Plataformas</h2>
+            <div class="social-links">
+                <!-- Cambia los enlaces "#" por tus perfiles reales -->
+                <a href="https://www.youtube.com/c/valenpiccoli" target="_blank" class="social-btn">YouTube</a>
+                <a href="https://open.spotify.com/intl-es/artist/1BG4eYjmjs4ekJtvbGXePK" target="_blank" class="social-btn">Spotify</a>
+                <a href="https://www.instagram.com/valenpiccoli/" target="_blank" class="social-btn">Instagram</a>
+                <a href="https://www.tiktok.com/@valenpiccoli" target="_blank" class="social-btn">TikTok</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Valen Piccoli. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
