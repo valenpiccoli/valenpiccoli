@@ -8,12 +8,11 @@
     <!-- DESCRIPCIÓN PARA GOOGLE (SEO) -->
     <meta name="description" content="Sitio oficial de Valen Piccoli, cantante, compositor y productor independiente de Argentina. Escucha su álbum Onírico, producciones y mezclas.">
 
-    <!-- IMPORTAR FUENTE 'masonsansalternate' Y GOOGLE FONTS -->
+    <!-- IMPORTAR FUENTE 'masonsansalternate' (.ttf) -->
     <style>
         @font-face {
             font-family: 'masonsansalternate';
-            src: url('masonsansalternate.woff2') format('woff2'),
-                 url('masonsansalternate.ttf') format('truetype');
+            src: url('masonsansalternate.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -40,7 +39,7 @@
             line-height: 1.6;
         }
 
-        /* BARRA DE NAVEGACIÓN SUPERIOR */
+        /* BARRA DE NAVEGACIÓN SUPERIOR ADAPTADA PARA CELULAR */
         nav {
             position: fixed;
             top: 0;
@@ -52,34 +51,36 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 0.8rem 1rem;
             z-index: 1000;
             box-sizing: border-box;
         }
 
         .nav-brand {
-            font-family: 'masonsansalternate', sans-serif;
-            font-size: 1.2rem;
+            font-family: 'masonsansalternate', Arial, sans-serif;
+            font-size: 0.95rem;
             color: #ffffff;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 0.8rem;
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
         .nav-links a {
-            font-family: 'masonsansalternate', sans-serif;
+            font-family: 'masonsansalternate', Arial, sans-serif;
             color: var(--text-color);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             transition: color 0.3s ease;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -89,14 +90,15 @@
         /* Redes Sociales en la barra derecha */
         .nav-socials {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.5rem;
             align-items: center;
         }
 
         .nav-socials a {
             color: var(--text-color);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 0.85rem;
+            font-weight: bold;
             transition: color 0.3s ease;
         }
 
@@ -104,7 +106,7 @@
             color: var(--accent-color);
         }
 
-        /* SECCIÓN PRINCIPAL / HERO (Con ajuste para que no corte la cara) */
+        /* SECCIÓN PRINCIPAL / HERO */
         .hero {
             position: relative;
             height: 90vh;
@@ -119,25 +121,27 @@
 
         .hero-content {
             z-index: 2;
-            padding: 2rem;
+            padding: 1.5rem;
             max-width: 800px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .hero h1 {
-            font-family: 'masonsansalternate', sans-serif;
-            font-size: 3.5rem;
+            font-family: 'masonsansalternate', Arial, sans-serif;
+            font-size: 2.8rem;
             margin: 0 0 0.5rem 0;
             color: #ffffff;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--accent-color);
             font-weight: 600;
-            margin-bottom: 2rem;
-            font-family: 'masonsansalternate', sans-serif;
+            margin-bottom: 1.5rem;
+            font-family: 'masonsansalternate', Arial, sans-serif;
             letter-spacing: 1px;
         }
 
@@ -145,31 +149,31 @@
         .container {
             max-width: 950px;
             margin: 0 auto;
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
         }
 
         section {
             background-color: var(--card-bg);
             border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
             border: 1px solid var(--border-color);
         }
 
         h2 {
-            font-family: 'masonsansalternate', sans-serif;
+            font-family: 'masonsansalternate', Arial, sans-serif;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.5rem;
             margin-top: 0;
             color: #ffffff;
-            font-size: 2rem;
+            font-size: 1.6rem;
             letter-spacing: 1px;
         }
 
         /* Biografía */
         .bio-text {
-            font-size: 1.05rem;
+            font-size: 1rem;
             text-align: justify;
             color: #c5c5d0;
         }
@@ -196,11 +200,6 @@
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
-        }
-
         .gallery-item img {
             width: 100%;
             height: auto;
@@ -209,11 +208,11 @@
 
         .gallery-caption {
             padding: 0.8rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-align: center;
             color: #a0a0b0;
             background: #0d1117;
-            font-family: 'masonsansalternate', sans-serif;
+            font-family: 'masonsansalternate', Arial, sans-serif;
         }
 
         /* Tarjetas de Producciones */
@@ -226,31 +225,32 @@
 
         .prod-card {
             background: #0d1117;
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
 
         .prod-card h3 {
-            font-family: 'masonsansalternate', sans-serif;
+            font-family: 'masonsansalternate', Arial, sans-serif;
             color: var(--accent-color);
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         /* Botones / Enlaces */
         .social-btn {
             background-color: #161f2e;
             color: var(--accent-color);
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
             border: 1px solid var(--accent-color);
             display: inline-block;
-            font-family: 'masonsansalternate', sans-serif;
+            font-family: 'masonsansalternate', Arial, sans-serif;
             letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
         .social-btn:hover {
@@ -258,6 +258,37 @@
             color: var(--bg-color);
             transform: translateY(-2px);
             box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        /* AJUSTE PARA COMPUTADORAS */
+        @media (min-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+            .nav-brand {
+                font-size: 1.2rem;
+            }
+            .nav-links {
+                gap: 1.5rem;
+            }
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+            .nav-socials {
+                gap: 0.8rem;
+            }
+            .nav-socials a {
+                font-size: 1.1rem;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            section {
+                padding: 2.5rem;
+            }
         }
 
         footer {
@@ -278,9 +309,9 @@
         
         <ul class="nav-links">
             <li><a href="#inicio">INICIO</a></li>
-            <li><a href="#biografia">BIOGRAFÍA</a></li>
-            <li><a href="#galeria">GALERÍA</a></li>
-            <li><a href="#producciones">PRODUCCIONES</a></li>
+            <li><a href="#biografia">BIO</a></li>
+            <li><a href="#galeria">FOTOS</a></li>
+            <li><a href="#producciones">PROD</a></li>
         </ul>
 
         <div class="nav-socials">
@@ -296,7 +327,7 @@
         <div class="hero-content">
             <h1>VALEN PICCOLI</h1>
             <p>ONÍRICO YA DISPONIBLE</p>
-            <div style="margin-top: 1.5rem;">
+            <div style="margin-top: 1rem;">
                 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/55pI6ttuJnTuhAYin2TopE?utm_source=generator&si=f835006350724898" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
@@ -315,7 +346,7 @@
         <!-- SECCIÓN GALERÍA DE FOTOS -->
         <section id="galeria">
             <h2>Galería de Fotos</h2>
-            <p style="color: #a0a0b0; text-align: center; margin-bottom: 1.5rem;">Fotos oficiales, portadas y presentaciones:</p>
+            <p style="color: #a0a0b0; text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem;">Fotos oficiales, portadas y presentaciones:</p>
             
             <div class="gallery-grid">
                 <div class="gallery-item">
@@ -329,10 +360,10 @@
             </div>
         </section>
 
-        <!-- SECCIÓN PRODUCCIONES (AHORA AL FINAL) -->
+        <!-- SECCIÓN PRODUCCIONES (AL FINAL) -->
         <section id="producciones">
             <h2>Producciones</h2>
-            <p style="color: #a0a0b0; margin-bottom: 1.5rem;">Trabajos de producción y mezcla realizados para otros artistas:</p>
+            <p style="color: #a0a0b0; margin-bottom: 1.5rem; font-size: 0.95rem;">Trabajos de producción y mezcla realizados para otros artistas:</p>
             
             <div class="prod-grid">
                 <!-- Producción 1 (Spotify Álbum) -->
@@ -348,16 +379,16 @@
                 <!-- Producción 3 (MusicBoy - YouTube) -->
                 <div class="prod-card">
                     <h3>MusicBoy - Me Voy</h3>
-                    <p style="color: #a0a0b0; font-size: 0.95rem;">Producción y mezcla</p>
+                    <p style="color: #a0a0b0; font-size: 0.9rem;">Producción y mezcla</p>
                     <div style="text-align: center; margin-top: 1rem;">
-                        <a href="https://www.youtube.com/watch?v=kxMRvALhHWc" target="_blank" class="social-btn">📺 Escuchar "Me Voy" en YouTube</a>
+                        <a href="https://www.youtube.com/watch?v=kxMRvALhHWc" target="_blank" class="social-btn">📺 Escuchar "Me Voy"</a>
                     </div>
                 </div>
 
                 <!-- Producción 4 (Noé) -->
                 <div class="prod-card">
                     <h3>Noé</h3>
-                    <p style="color: #c5c5d0; font-size: 1rem;">Singles producidos: <strong>TARIMA, ABC y RED FLAGS</strong></p>
+                    <p style="color: #c5c5d0; font-size: 0.95rem;">Singles producidos: <strong>TARIMA, ABC y RED FLAGS</strong></p>
                 </div>
             </div>
         </section>
@@ -370,3 +401,4 @@
 
 </body>
 </html>
+
