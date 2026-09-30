@@ -5,23 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valen Piccoli | Sitio Oficial</title>
     
-    <!-- IMPORTAR FUENTE DESDE GOOGLE FONTS (Poppins) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- DESCRIPCIÓN PARA GOOGLE (SEO) -->
+    <meta name="description" content="Sitio oficial de Valen Piccoli, cantante, compositor y productor independiente de Argentina. Escucha su álbum Onírico, producciones y mezclas.">
 
+    <!-- IMPORTAR FUENTE 'masonsansalternate' Y GOOGLE FONTS -->
     <style>
+        @font-face {
+            font-family: 'masonsansalternate';
+            src: url('masonsansalternate.woff2') format('woff2'),
+                 url('masonsansalternate.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --bg-color: #080a0f;
             --card-bg: #121620;
             --text-color: #e1e1e6;
-            --accent-color: #00e5ff;
+            --accent-color: #00e5ff; /* Turquesa brillante */
             --accent-hover: #00b8cc;
             --border-color: #1f2a3a;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            /* APLICAR LA NUEVA FUENTE A TODA LA PÁGINA */
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -30,32 +40,93 @@
             line-height: 1.6;
         }
 
-        header {
+        /* BARRA DE NAVEGACIÓN SUPERIOR (Estilo profesional) */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(8, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .nav-brand {
+            font-family: 'masonsansalternate', sans-serif;
+            font-size: 1.4rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-family: 'masonsansalternate', sans-serif;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* SECCIÓN PRINCIPAL / HERO */
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 4rem 1rem 2rem 1rem;
-            background: linear-gradient(to bottom, #111a24, var(--bg-color));
+            background: linear-gradient(to bottom, rgba(8, 10, 15, 0.5), var(--bg-color)), url('foto1.jpg') no-repeat center center/cover;
+            padding-top: 60px;
             border-bottom: 2px solid var(--border-color);
         }
 
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
+        .hero-content {
+            z-index: 2;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: 'masonsansalternate', sans-serif;
+            font-size: 4rem;
+            margin: 0 0 0.5rem 0;
             color: #ffffff;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
         }
 
-        header p.subtitle {
-            font-size: 1.2rem;
+        .hero p {
+            font-size: 1.4rem;
             color: var(--accent-color);
-            margin-top: 0.5rem;
             font-weight: 600;
+            margin-bottom: 2rem;
         }
 
+        /* CONTENEDOR GENERAL */
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
         }
 
         section {
@@ -68,11 +139,13 @@
         }
 
         h2 {
+            font-family: 'masonsansalternate', sans-serif;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.5rem;
             margin-top: 0;
             color: #ffffff;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            letter-spacing: 1px;
         }
 
         /* Biografía */
@@ -82,7 +155,7 @@
             color: #c5c5d0;
         }
 
-        /* Galería de Imágenes */
+        /* Galería de Imágenes Adaptativa */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -111,8 +184,7 @@
 
         .gallery-item img {
             width: 100%;
-            height: 220px;
-            object-fit: cover;
+            height: auto;
             display: block;
         }
 
@@ -122,44 +194,33 @@
             text-align: center;
             color: #a0a0b0;
             background: #0d1117;
+            font-family: 'masonsansalternate', sans-serif;
         }
 
-        /* Videos de YouTube */
-        .video-grid {
+        /* Tarjetas de Producciones */
+        .prod-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 1.5rem;
         }
 
-        @media (min-width: 768px) {
-            .video-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-            height: 0;
+        .prod-card {
+            background: #0d1117;
+            padding: 1.5rem;
             border-radius: 8px;
-            overflow: hidden;
-            background: #000;
             border: 1px solid var(--border-color);
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+        .prod-card h3 {
+            font-family: 'masonsansalternate', sans-serif;
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 1.3rem;
         }
 
-        /* Redes Sociales */
-        .social-links {
+        /* Botones / Enlaces */
+        .social-links, .action-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
@@ -176,6 +237,9 @@
             font-weight: bold;
             transition: all 0.3s ease;
             border: 1px solid var(--accent-color);
+            display: inline-block;
+            font-family: 'masonsansalternate', sans-serif;
+            letter-spacing: 1px;
         }
 
         .social-btn:hover {
@@ -187,76 +251,104 @@
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             font-size: 0.9rem;
             color: #6b7280;
             border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Valen Piccoli</h1>
-        <p class="subtitle">Cantante y Compositor Independiente</p>
+    <!-- BARRA SUPERIOR DE NAVEGACIÓN -->
+    <nav>
+        <a href="#inicio" class="nav-brand">VALEN PICCOLI</a>
+        <ul class="nav-links">
+            <li><a href="#inicio">INICIO</a></li>
+            <li><a href="#biografia">BIOGRAFÍA</a></li>
+            <li><a href="#producciones">PRODUCCIONES</a></li>
+            <li><a href="#galeria">GALERÍA</a></li>
+            <li><a href="#redes">REDES</a></li>
+        </ul>
+    </nav>
+
+    <!-- SECCIÓN PRINCIPAL (HERO CON FOTO1 Y SPOTIFY) -->
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>VALEN PICCOLI</h1>
+            <p>ONÍRICO YA DISPONIBLE</p>
+            <div style="margin-top: 1.5rem;">
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/55pI6ttuJnTuhAYin2TopE?utm_source=generator&si=f835006350724898" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
     </header>
 
     <div class="container">
         
-        <!-- Sección Biografía -->
+        <!-- SECCIÓN BIOGRAFÍA -->
         <section id="biografia">
             <h2>Biografía</h2>
             <p class="bio-text">
-                Valen Piccoli es un cantante y compositor independiente de Argentina, nacido en 1999. Comenzó a componer y grabar demos a la edad de 11 años. Desde entonces, ha realizado covers y ha compuesto canciones de forma regular. En 2019 lanzó su primer sencillo <em>Aunque En Mi Mente Aún Estes</em>; que cuenta con la producción de DJ Shands, luego lanza la versión remix producida por Rayzon. En abril de 2019 lanzó <em>Azul</em>; la cual tuvo 3.9K de visitas en YouTube. En 2020 lanzó <em>Indeciso</em>; que cuenta con más de 6K de visitas en Youtube. También colaboró en canciones <em>Don't Mess With Me</em>, <em>Solo Tú</em> y <em>Falsas Promesas</em> junto a @Levy El Melódico. En el 2022 realizó su primera presentación en La Plata, luego en Quilmes, y en el 2023 y 2024 realizó diversas presentaciones por CABA y zona oeste de Buenos Aires. En 2023 también lanzó su álbum <em>Nostálgico</em>, el cual coprodujo junto a RAYZØN. En el 2025 lanzó su álbum <em>LA TORMENTA</em> con sus singles <em>APAGÓN</em>, <em>11:11</em>, <em>XTASIS</em> y <em>HÉROE</em>. En el 2026 lanza su nuevo álbum <em>ONÍRICO</em>, con temas como <em>Extracorporal</em>, <em>AMANECER</em> y <em>CASUALIDAD</em>.
+                Valen Piccoli es un cantante y compositor independiente de Argentina, nacido en 1999. Comenzó a componer y grabar demos a la edad de 11 años. Desde entonces, ha realizado covers y ha compuesto canciones de forma regular. En 2019 lanzó su primer sencillo <em>Aunque En Mi Mente Aún Estes</em>; que cuenta con la producción de DJ Shands, luego lanza la versión remix producida por Rayzon. En abril de 2019 lanzó <em>Azul</em>; la cual tuvo 3.9K de visitas en YouTube. En 2020 lanzó <em>Indeciso</em>; que cuenta con más de 6K de visitas en Youtube. También colaboró en canciones <em>Don't Mess With Me</em>, <em>Solo Tú</em> y <i>Falsas Promesas</i> junto a @Levy El Melódico. En el 2022 realizó su primera presentación en La Plata, luego en Quilmes, y en el 2023 y 2024 realizó diversas presentaciones por CABA y zona oeste de Buenos Aires. En 2023 también lanzó su álbum <em>Nostálgico</em>, el cual coprodujo junto a RAYZØN. En el 2025 lanzó su álbum <em>LA TORMENTA</em> con sus singles <em>APAGÓN</em>, <em>11:11</em>, <em>XTASIS</em> y <em>HÉROE</em>. En el 2026 lanza su nuevo álbum <em>ONÍRICO</em>, con temas como <em>Extracorporal</em>, <em>AMANECER</em> y <em>CASUALIDAD</em>.
             </p>
         </section>
 
-        <!-- Sección Galería de Imágenes -->
+        <!-- SECCIÓN PRODUCCIONES Y MEZCLAS -->
+        <section id="producciones">
+            <h2>Producciones y Mezclas</h2>
+            <p style="color: #a0a0b0; margin-bottom: 1.5rem;">Trabajos de producción y mezcla realizados para otros artistas:</p>
+            
+            <div class="prod-grid">
+                <!-- Producción 1 (Spotify Álbum) -->
+                <div class="prod-card">
+                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/4eXwpk9ZI35KhmFQjd0Gej?utm_source=generator&si=381da8bbbac34a03" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+
+                <!-- Producción 2 (Spotify Track) -->
+                <div class="prod-card">
+                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5s0lz6G7HDg0jkaCblDlQy?utm_source=generator&si=60299c4cb2ee4a47" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+
+                <!-- Producción 3 (MusicBoy - YouTube) -->
+                <div class="prod-card">
+                    <h3>MusicBoy - Me Voy</h3>
+                    <p style="color: #a0a0b0; font-size: 0.95rem;">Producción y mezcla</p>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="https://www.youtube.com/watch?v=kxMRvALhHWc" target="_blank" class="social-btn">📺 Escuchar "Me Voy" en YouTube</a>
+                    </div>
+                </div>
+
+                <!-- Producción 4 (Noé) -->
+                <div class="prod-card">
+                    <h3>Noé</h3>
+                    <p style="color: #c5c5d0; font-size: 1rem;">Singles producidos: <strong>TARIMA, ABC y RED FLAGS</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN GALERÍA DE FOTOS -->
         <section id="galeria">
             <h2>Galería de Fotos</h2>
             <p style="color: #a0a0b0; text-align: center; margin-bottom: 1.5rem;">Fotos oficiales, portadas y presentaciones:</p>
             
             <div class="gallery-grid">
-                <!-- Imagen 1 -->
                 <div class="gallery-item">
-                    <!-- Reemplaza 'foto1.jpg' por el nombre del archivo de tu imagen -->
                     <img src="foto1.jpg" alt="ONÍRICO">
                     <div class="gallery-caption">Álbum Onírico (2026)</div>
                 </div>
-
-                <!-- Imagen 2 -->
                 <div class="gallery-item">
-                    <!-- Reemplaza 'foto2.jpg' por el nombre del archivo de tu imagen -->
                     <img src="foto2.jpg" alt="LA TORMENTA">
                     <div class="gallery-caption">LA TORMENTA</div>
                 </div>
             </div>
         </section>
-        <!-- Sección Spotify -->
-        <section id="spotify">
-            <h2>Escucha en Spotify</h2>
-            <p style="color: #a0a0b0; text-align: center; margin-bottom: 1.5rem;">Reproduce mi música oficial aquí:</p>
-            <div style="display: flex; justify-content: center;">
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/55pI6ttuJnTuhAYin2TopE?utm_source=generator&si=f835006350724898" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </section>
-        <!-- Sección Videos de YouTube -->
-        <section id="videos">
-            <h2>Videos Destacados</h2>
-            <p style="color: #a0a0b0; text-align: center; margin-bottom: 1.5rem;">Escucha los temas en YouTube:</p>
-            
-            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-                <!-- Reemplaza el enlace de ejemplo por tu link real de YouTube -->
-                <a href="https://www.youtube.com/watch?v=YVDin1NQexs" target="_blank" class="social-btn" style="width: 80%; text-align: center;">🎵 Ver ONIRICO en YouTube</a>
-                <a href="https://www.youtube.com/watch?v=jkTm1rY8dV8" target="_blank" class="social-btn" style="width: 80%; text-align: center;">🎵 Ver XTASIS en YouTube</a>
-            </div>
-        </section>
-        <!-- Sección Redes Sociales -->
+
+        <!-- SECCIÓN REDES SOCIALES -->
         <section id="redes">
             <h2>Redes Sociales y Plataformas</h2>
             <div class="social-links">
-                <!-- Cambia los enlaces "#" por tus perfiles reales -->
-                <a href="https://www.youtube.com/c/valenpiccoli" target="_blank" class="social-btn">YouTube</a>
+                <a href="https://www.youtube.com/@ValenPiccoli" target="_blank" class="social-btn">YouTube</a>
                 <a href="https://open.spotify.com/intl-es/artist/1BG4eYjmjs4ekJtvbGXePK" target="_blank" class="social-btn">Spotify</a>
                 <a href="https://www.instagram.com/valenpiccoli/" target="_blank" class="social-btn">Instagram</a>
                 <a href="https://www.tiktok.com/@valenpiccoli" target="_blank" class="social-btn">TikTok</a>
