@@ -228,9 +228,14 @@
                 <div class="gallery-item">
                     <!-- Reemplaza 'foto2.jpg' por el nombre del archivo de tu imagen -->
                     <img src="foto2.jpg" alt="LA TORMENTA">
-                    <div class="gallery-caption">En vivo en CABA</div>
+                    <div class="gallery-caption">LA TORMENTA</div>
                 </div>
             </div>
+            .gallery-item img {
+            width: 100%;
+            height: auto; /* <--- Esto hace que la altura se adapte automáticamente a la proporción de la foto */
+            display: block;
+        }
         </section>
         <!-- Sección Spotify -->
         <section id="spotify">
