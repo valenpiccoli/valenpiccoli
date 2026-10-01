@@ -39,7 +39,7 @@
             line-height: 1.6;
         }
 
-        /* BARRA DE NAVEGACIÓN SUPERIOR OPTIMIZADA PARA CELULAR */
+        /* BARRA DE NAVEGACIÓN SUPERIOR COMPACTA PARA CELULAR */
         nav {
             position: fixed;
             top: 0;
@@ -51,24 +51,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem 0.8rem;
+            padding: 0.4rem 0.6rem;
             z-index: 1000;
             box-sizing: border-box;
-            overflow-x: auto; /* Permite deslizar si la pantalla es muy pequeña */
         }
 
-        .nav-brand {
-            font-family: 'masonsansalternate', Arial, sans-serif;
-            font-size: 0.85rem;
-            color: #ffffff;
-            letter-spacing: 1px;
-            text-decoration: none;
-            white-space: nowrap;
+        /* Logo pequeño exclusivo para la barra superior */
+        .nav-brand img {
+            height: 24px;
+            width: auto;
+            display: block;
         }
 
         .nav-links {
             display: flex;
-            gap: 0.4rem;
+            gap: 0.35rem;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -78,9 +75,9 @@
             font-family: 'masonsansalternate', Arial, sans-serif;
             color: var(--text-color);
             text-decoration: none;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             transition: color 0.3s ease;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
             white-space: nowrap;
         }
 
@@ -88,25 +85,23 @@
             color: var(--accent-color);
         }
 
-        /* Redes Sociales compactas con texto */
+        /* Logos de redes sociales pequeños en PNG */
         .nav-socials {
             display: flex;
-            gap: 0.3rem;
+            gap: 0.35rem;
             align-items: center;
         }
 
-        .nav-socials a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 0.65rem;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            font-family: 'masonsansalternate', Arial, sans-serif;
-            white-space: nowrap;
+        .nav-socials img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
         }
 
-        .nav-socials a:hover {
-            color: #ffffff;
+        .nav-socials a:hover img {
+            transform: scale(1.15);
         }
 
         /* SECCIÓN PRINCIPAL / HERO */
@@ -133,17 +128,17 @@
             align-items: center;
         }
 
-        .hero h1 {
-            font-family: 'masonsansalternate', Arial, sans-serif;
-            font-size: 2.2rem;
-            margin: 0 0 0.5rem 0;
-            color: #ffffff;
-            letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        /* LOGO GRANDE EN EL CENTRO DE LA PORTADA */
+        .hero-logo {
+            max-width: 280px; /* Tamaño grande para celular */
+            width: 85%;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.5));
         }
 
         .hero p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--accent-color);
             font-weight: 600;
             margin-bottom: 1.5rem;
@@ -264,10 +259,9 @@
         @media (min-width: 768px) {
             nav {
                 padding: 1rem 2rem;
-                overflow-x: visible;
             }
-            .nav-brand {
-                font-size: 1.1rem;
+            .nav-brand img {
+                height: 36px;
             }
             .nav-links {
                 gap: 1.2rem;
@@ -278,11 +272,13 @@
             .nav-socials {
                 gap: 0.8rem;
             }
-            .nav-socials a {
-                font-size: 0.9rem;
+            .nav-socials img {
+                width: 24px;
+                height: 24px;
             }
-            .hero h1 {
-                font-size: 3.5rem;
+            /* Logo grande con tamaño imponente en PC */
+            .hero-logo {
+                max-width: 420px;
             }
             .hero p {
                 font-size: 1.3rem;
@@ -312,7 +308,9 @@
 
     <!-- BARRA SUPERIOR DE NAVEGACIÓN -->
     <nav>
-        <a href="#inicio" class="nav-brand">VALEN PICCOLI</a>
+        <a href="#inicio" class="nav-brand">
+            <img src="logo.png" alt="Valen Piccoli">
+        </a>
         
         <ul class="nav-links">
             <li><a href="#inicio">INICIO</a></li>
@@ -323,17 +321,17 @@
         </ul>
 
         <div class="nav-socials">
-            <a href="https://www.instagram.com/valenpiccoli/" target="_blank">IG</a>
-            <a href="https://www.tiktok.com/@valenpiccoli" target="_blank">TK</a>
-            <a href="https://www.youtube.com/@ValenPiccoli" target="_blank">YT</a>
-            <a href="https://open.spotify.com/intl-es/artist/1BG4eYjmjs4ekJtvbGXePK" target="_blank">SP</a>
+            <a href="https://www.instagram.com/valenpiccoli/" target="_blank" title="Instagram"><img src="ig.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/@valenpiccoli" target="_blank" title="TikTok"><img src="tk.png" alt="TikTok"></a>
+            <a href="https://www.youtube.com/@ValenPiccoli" target="_blank" title="YouTube"><img src="yt.png" alt="YouTube"></a>
+            <a href="https://open.spotify.com/intl-es/artist/1BG4eYjmjs4ekJtvbGXePK" target="_blank" title="Spotify"><img src="sp.png" alt="Spotify"></a>
         </div>
     </nav>
 
-    <!-- SECCIÓN PRINCIPAL (HERO CON TÍTULO EN FUENTE PROPIA Y SPOTIFY) -->
+    <!-- SECCIÓN PRINCIPAL (HERO CON LOGO GRANDE Y SPOTIFY) -->
     <header id="inicio" class="hero">
         <div class="hero-content">
-            <h1>VALEN PICCOLI</h1>
+            <img src="logo.png" alt="Valen Piccoli" class="hero-logo">
             <p>ONÍRICO YA DISPONIBLE</p>
             <div style="margin-top: 1rem; width: 100%;">
                 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/55pI6ttuJnTuhAYin2TopE?utm_source=generator&si=f835006350724898" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -376,7 +374,7 @@
         <section id="biografia">
             <h2>Biografía</h2>
             <p class="bio-text">
-                Valen Piccoli es un cantante y compositor independiente de Argentina, nacido en 1999. Comenzó a componer y grabar demos a la edad de 11 años. Desde entonces, ha realizado covers y ha compuesto canciones de forma regular. En 2019 lanzó su primer sencillo <em>Aunque En Mi Mente Aún Estes</em>; que cuenta con la producción de DJ Shands, luego lanza la versión remix producida por Rayzon. En abril de 2019 lanzó <em>Azul</em>; la cual tuvo 3.9K de visitas en YouTube. En 2020 lanzó <em>Indeciso</em>; que cuenta con más de 6K de visitas en Youtube. También colaboró en canciones <em>Don't Mess With Me</em>, <em>Solo Tú</em> y <i>Falsas Promesas</i> junto a @Levy El Melódico. En el 2022 realizó su primera presentación en La Plata, luego en Quilmes, y en el 2023 y 2024 realizó diversas presentaciones por CABA y zona oeste de Buenos Aires. En 2023 también lanzó su álbum <em>Nostálgico</em>, el cual coprodujo junto a RAYZØN. En el 2025 lanzó su álbum <em>LA TORMENTA</em> con sus singles <em>APAGÓN</em>, <i>11:11</i>, <em>XTASIS</em> y <em>HÉROE</em>. En el 2026 lanza su nuevo álbum <em>ONÍRICO</em>, con temas como <em>Extracorporal</em>, <em>AMANECER</em> y <em>CASUALIDAD</em>.
+                Valen Piccoli es un cantante y compositor independiente de Argentina, nacido en 1999. Comenzó a componer y grabar demos a la edad de 11 años. Desde entonces, ha realizado covers y ha compuesto canciones de forma regular. En 2019 lanzó su primer sencillo <em>Aunque En Mi Mente Aún Estes</em>; que cuenta con la producción de DJ Shands, luego lanza la versión remix producida por Rayzon. En abril de 2019 lanzó <em>Azul</em>; la cual tuvo 3.9K de visitas en YouTube. En 2020 lanzó <em>Indeciso</em>; que cuenta con más de 6K de visitas en Youtube. También colaboró en canciones <em>Don't Mess With Me</em>, <em>Solo Tú</em> y <i>Falsas Promesas</i> junto a @Levy El Melódico. En el 2022 realizó su primera presentación en La Plata, luego en Quilmes, y en el 2023 y 2024 realizó diversas presentaciones por CABA y zona oeste de Buenos Aires. En 2023 también lanzó su álbum <em>Nostálgico</em>, el cual coprodujo junto a RAYZØN. En el 2025 lanzó su álbum <em>LA TORMENTA</em> con sus singles <em>APAGÓN</em>, <em>11:11</em>, <em>XTASIS</em> y <em>HÉROE</em>. En el 2026 lanza su nuevo álbum <em>ONÍRICO</em>, con temas como <em>Extracorporal</em>, <em>AMANECER</em> y <em>CASUALIDAD</em>.
             </p>
         </section>
 
@@ -438,4 +436,3 @@
 
 </body>
 </html>
-
