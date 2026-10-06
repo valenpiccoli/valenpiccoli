@@ -428,6 +428,38 @@
             </div>
         </section>
 
+        <!-- SECCIÓN CONTACTO -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p style="color: #a0a0b0; margin-bottom: 1.5rem; font-size: 0.95rem;">¿Quieres colaborar, encargar una producción, mezcla o mastering? Escríbeme desde aquí:</p>
+            
+            <!-- REEMPLAZA 'https://formspree.io/f/tuvacioo' con tu enlace real de Formspree -->
+            <form action="https://formspree.io/f/xzeddrwl" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="email">Tu Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="asunto">Asunto / Motivo:</label>
+                    <select id="asunto" name="asunto" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="Colaboración musical">Colaboración musical</option>
+                        <option value="Producción musical">Producción musical</option>
+                        <option value="Mezcla y Mastering">Mezcla y Mastering</option>
+                        <option value="Otro motivo">Otro motivo</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Tu Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+        </section>
+
     </div>
 
     <footer>
