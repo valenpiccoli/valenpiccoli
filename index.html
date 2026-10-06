@@ -428,11 +428,12 @@
             </div>
         </section>
 
-        <!-- FORMULARIO DE CONTACTO -->
-            <form action="https://formspree.io/f/xzeddrwl" method="POST" class="contact-form" id="contact-form">
-                <!-- Este campo evita la redirección de Formspree -->
-                <input type="hidden" name="_next" value="https://valenpiccoli.github.io/valen/#contacto">
-
+<!-- SECCIÓN CONTACTO -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p style="color: #a0a0b0; margin-bottom: 1.5rem; font-size: 0.95rem;">¿Quieres colaborar, encargar una producción, mezcla o mastering? Escríbeme desde aquí:</p>
+            
+            <form id="contact-form" action="https://formspree.io/f/tuvacioo" method="POST" class="contact-form">
                 <div class="form-group">
                     <label for="email">Tu Correo Electrónico:</label>
                     <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
@@ -454,7 +455,12 @@
                     <textarea id="mensaje" name="mensaje" required placeholder="Cuéntame sobre tu proyecto..."></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                <button type="submit" id="submit-btn" class="submit-btn">Enviar Mensaje</button>
+                
+                <!-- Mensaje de éxito que aparecerá aquí mismo -->
+                <p id="form-success-msg" style="display: none; color: var(--accent-color); font-family: 'masonsansalternate', Arial, sans-serif; margin-top: 1rem; text-align: center; letter-spacing: 1px;">
+                    ¡Mensaje enviado con éxito! Te responderé pronto.
+                </p>
             </form>
         </section>
 
