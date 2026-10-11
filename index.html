@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -302,12 +303,55 @@
             border-top: 1px solid var(--border-color);
             background-color: var(--card-bg);
         }
+    
+        *, *::before, *::after { box-sizing: border-box; }
+        @font-face { font-family: 'masonsansalternate'; src: url('masonsansalternate.ttf') format('truetype'); font-display: swap; }
+        section, header { scroll-margin-top: 100px; }
+        .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+        .hero { height:auto; min-height:90svh; padding-bottom:2rem; }
+        .bio-text { text-align:left; }
+        .nav-links a { font-size:0.8rem; display:block; padding:0.65rem 0.3rem; }
+        .nav-socials a { display:grid; place-items:center; min-width:36px; min-height:36px; }
+        .video-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; }
+        .video-card { min-width:0; background:#0d1117; padding:1rem; border:1px solid var(--border-color); border-radius:8px; }
+        .video-card iframe { width:100%; aspect-ratio:16 / 9; display:block; border:0; border-radius:8px; }
+        .video-card .social-btn { margin-top:0.8rem; }
+        .contact-form { display:grid; gap:1.2rem; }
+        .form-group { display:grid; gap:0.45rem; }
+        input, select, textarea { width:100%; font:inherit; color:var(--text-color); background:#0d1117; border:1px solid #526278; border-radius:6px; padding:0.8rem; }
+        textarea { min-height:160px; resize:vertical; }
+        .submit-btn { justify-self:start; font:inherit; font-weight:600; padding:0.8rem 1.3rem; color:#080a0f; background:var(--accent-color); border:0; border-radius:8px; cursor:pointer; }
+        .submit-btn:disabled { opacity:0.65; cursor:wait; }
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-color); outline-offset:4px; }
+        .form-status { margin:0; }
+        @media (max-width:767px) {
+            nav { position:sticky; flex-wrap:wrap; gap:0.3rem; }
+            .nav-links { order:3; width:100%; flex-wrap:wrap; justify-content:center; gap:0.1rem 0.45rem; }
+            .hero { padding-top:1rem; }
+        }
+        @media (min-width:768px) { .video-grid { grid-template-columns:1fr 1fr; } }
+        @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
+
     </style>
+
+    <link rel="canonical" href="https://valenpiccoli.github.io/valenpiccoli/">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:title" content="Valen Piccoli | Música y Producción">
+    <meta property="og:description" content="Escuchá ONÍRICO y los lanzamientos de Valen Piccoli. Videos y contacto para producción, mezcla y mastering.">
+    <meta property="og:url" content="https://valenpiccoli.github.io/valenpiccoli/">
+    <meta property="og:image" content="https://valenpiccoli.github.io/valenpiccoli/foto1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Valen Piccoli","url":"https://valenpiccoli.github.io/valenpiccoli/","image":"https://valenpiccoli.github.io/valenpiccoli/foto1.jpg","jobTitle":"Cantante, compositor y productor independiente","sameAs":["https://www.instagram.com/valenpiccoli/","https://www.tiktok.com/@valenpiccoli","https://www.youtube.com/@ValenPiccoli","https://open.spotify.com/artist/1BG4eYjmjs4ekJtvbGXePK"]}</script>
 </head>
 <body>
 
     <!-- BARRA SUPERIOR DE NAVEGACIÓN -->
-    <nav>
+    <nav aria-label="Navegación principal">
         <a href="#inicio" class="nav-brand">
             <img src="logo.png" alt="Valen Piccoli">
         </a>
@@ -315,26 +359,30 @@
         <ul class="nav-links">
             <li><a href="#inicio">INICIO</a></li>
             <li><a href="#musica">MÚSICA</a></li>
+            <li><a href="#videos">VIDEOS</a></li>
             <li><a href="#biografia">BIO</a></li>
             <li><a href="#galeria">FOTOS</a></li>
             <li><a href="#producciones">PROD</a></li>
+            <li><a href="#contacto">CONTACTO</a></li>
         </ul>
 
         <div class="nav-socials">
-            <a href="https://www.instagram.com/valenpiccoli/" target="_blank" title="Instagram"><img src="ig.png" alt="Instagram"></a>
-            <a href="https://www.tiktok.com/@valenpiccoli" target="_blank" title="TikTok"><img src="tk.png" alt="TikTok"></a>
-            <a href="https://www.youtube.com/@ValenPiccoli" target="_blank" title="YouTube"><img src="yt.png" alt="YouTube"></a>
-            <a href="https://open.spotify.com/intl-es/artist/1BG4eYjmjs4ekJtvbGXePK" target="_blank" title="Spotify"><img src="sp.png" alt="Spotify"></a>
+            <a href="https://www.instagram.com/valenpiccoli/" target="_blank" rel="noopener noreferrer" title="Instagram"><img src="ig.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/@valenpiccoli" target="_blank" rel="noopener noreferrer" title="TikTok"><img src="tk.png" alt="TikTok"></a>
+            <a href="https://www.youtube.com/@ValenPiccoli" target="_blank" rel="noopener noreferrer" title="YouTube"><img src="yt.png" alt="YouTube"></a>
+            <a href="https://open.spotify.com/intl-es/artist/1BG4eYjmjs4ekJtvbGXePK" target="_blank" rel="noopener noreferrer" title="Spotify"><img src="sp.png" alt="Spotify"></a>
         </div>
     </nav>
 
     <!-- SECCIÓN PRINCIPAL (HERO CON LOGO GRANDE Y SPOTIFY) -->
     <header id="inicio" class="hero">
         <div class="hero-content">
+            <h1 class="sr-only">Valen Piccoli — cantante, compositor y productor independiente</h1>
             <img src="logo.png" alt="Valen Piccoli" class="hero-logo">
             <p>ONÍRICO YA DISPONIBLE</p>
+            <a href="#musica" class="social-btn">Explorar mi música</a>
             <div style="margin-top: 1rem; width: 100%;">
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/55pI6ttuJnTuhAYin2TopE?utm_source=generator&si=f835006350724898" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe title="ONÍRICO — lanzamiento destacado" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/55pI6ttuJnTuhAYin2TopE?utm_source=generator&si=f835006350724898" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
     </header>
@@ -349,23 +397,51 @@
             <div class="music-grid">
                 <!-- Álbum Onírico -->
                 <div class="music-card">
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/55pI6ttuJnTuhAYin2TopE?utm_source=generator&si=f835006350724898" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe title="ONÍRICO — álbum en Spotify" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/55pI6ttuJnTuhAYin2TopE?utm_source=generator&si=f835006350724898" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
                 <!-- Álbum Nostálgico -->
                 <div class="music-card">
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/17Wy6Be0rQ552nUg7waCuh?utm_source=generator&si=77064e5785ce4ea2" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe title="Nostálgico — álbum en Spotify" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/17Wy6Be0rQ552nUg7waCuh?utm_source=generator&si=77064e5785ce4ea2" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
                 <!-- Álbum La Tormenta -->
                 <div class="music-card">
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/5s6tb2hwJXyEggJZ2BKzUb?utm_source=generator&si=2f5787b44f964faf" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe title="LA TORMENTA — álbum en Spotify" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/5s6tb2hwJXyEggJZ2BKzUb?utm_source=generator&si=2f5787b44f964faf" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
                 <!-- Aunque En Mi Mente Aun Estes -->
                 <div class="music-card">
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/5kr1hyBUV20buqXwfUPo5n?utm_source=generator&si=665bb89b4f074367" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe title="Aunque En Mi Mente Aún Estés — álbum en Spotify" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/5kr1hyBUV20buqXwfUPo5n?utm_source=generator&si=665bb89b4f074367" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
                 <!-- 19 + 20 -->
                 <div class="music-card">
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/0iOZRG6UWWJFFMjCPpfxel?utm_source=generator&si=634244286d5f4167" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe title="19 + 20 — álbum en Spotify" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/0iOZRG6UWWJFFMjCPpfxel?utm_source=generator&si=634244286d5f4167" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="videos">
+            <h2>Videos</h2>
+            <p>Escuchá y mirá mis videos. Si un reproductor no está disponible, podés abrirlo directamente en YouTube.</p>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe data-youtube-src="https://www.youtube.com/embed/sDDenoJC0gE" title="Video 1 de Valen Piccoli" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=sDDenoJC0gE" target="_blank" rel="noopener noreferrer" class="social-btn">Ver video 1 en YouTube</a>
+                </div>
+                <div class="video-card">
+                    <iframe data-youtube-src="https://www.youtube.com/embed/H4B261S25NY" title="Video 2 de Valen Piccoli" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=H4B261S25NY" target="_blank" rel="noopener noreferrer" class="social-btn">Ver video 2 en YouTube</a>
+                </div>
+                <div class="video-card">
+                    <iframe data-youtube-src="https://www.youtube.com/embed/jkTm1rY8dV8" title="Video 3 de Valen Piccoli" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=jkTm1rY8dV8" target="_blank" rel="noopener noreferrer" class="social-btn">Ver video 3 en YouTube</a>
+                </div>
+                <div class="video-card">
+                    <iframe data-youtube-src="https://www.youtube.com/embed/X9zUW8deTrY" title="Video 4 de Valen Piccoli" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=X9zUW8deTrY" target="_blank" rel="noopener noreferrer" class="social-btn">Ver video 4 en YouTube</a>
+                </div>
+                <div class="video-card">
+                    <iframe data-youtube-src="https://www.youtube.com/embed/8cZ8_gElRKw" title="Video 5 de Valen Piccoli" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=8cZ8_gElRKw" target="_blank" rel="noopener noreferrer" class="social-btn">Ver video 5 en YouTube</a>
                 </div>
             </div>
         </section>
@@ -385,11 +461,11 @@
             
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="foto1.jpg" alt="ONÍRICO">
+                    <img src="foto1.jpg" alt="Portada de ONÍRICO de Valen Piccoli" loading="lazy">
                     <div class="gallery-caption">Álbum Onírico (2026)</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="foto2.jpg" alt="LA TORMENTA">
+                    <img src="foto2.jpg" alt="Portada de LA TORMENTA de Valen Piccoli" loading="lazy">
                     <div class="gallery-caption">LA TORMENTA</div>
                 </div>
             </div>
@@ -405,17 +481,17 @@
                 <div class="prod-card" style="grid-column: 1 / -1; text-align: center; background: linear-gradient(135deg, #0d1117, #161f2e);">
                     <h3 style="color: #ffffff; margin-bottom: 0.5rem;">Créditos de Producción y Lanzamientos</h3>
                     <p style="color: #c5c5d0; font-size: 0.95rem; margin-bottom: 1.2rem;">Consulta la lista completa de canciones, créditos de mezcla y masterización:</p>
-                    <a href="https://muso.ai/profile/25ca848a-a4f3-49c3-afa9-94ad016fff48" target="_blank" class="social-btn">🔗 Ver perfil completo en Muso.ai</a>
+                    <a href="https://muso.ai/profile/25ca848a-a4f3-49c3-afa9-94ad016fff48" target="_blank" rel="noopener noreferrer" class="social-btn">🔗 Ver perfil completo en Muso.ai</a>
                 </div>
 
                 <!-- Producción 1 (Spotify Álbum) -->
                 <div class="prod-card">
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/4eXwpk9ZI35KhmFQjd0Gej?utm_source=generator&si=381da8bbbac34a03" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe title="Producción destacada — álbum en Spotify" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/4eXwpk9ZI35KhmFQjd0Gej?utm_source=generator&si=381da8bbbac34a03" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
 
                 <!-- Producción 2 (Spotify Track) -->
                 <div class="prod-card">
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5s0lz6G7HDg0jkaCblDlQy?utm_source=generator&si=60299c4cb2ee4a47" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe title="Producción destacada — canción en Spotify" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5s0lz6G7HDg0jkaCblDlQy?utm_source=generator&si=60299c4cb2ee4a47" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
 
                 <!-- Producción 3 (MusicBoy - YouTube) -->
@@ -423,7 +499,7 @@
                     <h3>MusicBoy - Me Voy</h3>
                     <p style="color: #a0a0b0; font-size: 0.9rem;">Producción y mezcla</p>
                     <div style="text-align: center; margin-top: 1rem;">
-                        <a href="https://www.youtube.com/watch?v=kxMRvALhHWc" target="_blank" class="social-btn">📺 Escuchar "Me Voy"</a>
+                        <a href="https://www.youtube.com/watch?v=kxMRvALhHWc" target="_blank" rel="noopener noreferrer" class="social-btn">📺 Escuchar "Me Voy"</a>
                     </div>
                 </div>
 
@@ -435,20 +511,12 @@
             </div>
         </section>
 
-                <!-- Producción 4 (Noé) -->
-                <div class="prod-card">
-                    <h3>Noé</h3>
-                    <p style="color: #c5c5d0; font-size: 0.95rem;">Singles producidos: <strong>TARIMA, ABC y RED FLAGS</strong></p>
-                </div>
-            </div>
-        </section>
-
-<!-- SECCIÓN CONTACTO -->
+                <!-- SECCIÓN CONTACTO -->
         <section id="contacto">
             <h2>Contacto</h2>
-            <p style="color: #a0a0b0; margin-bottom: 1.5rem; font-size: 0.95rem;">¿Quieres colaborar, encargar una producción, mezcla o mastering? Escríbeme desde aquí:</p>
+            <p style="color: #a0a0b0; margin-bottom: 1.5rem; font-size: 0.95rem;">¿Quieres colaborar, encargar una producción, mezcla, mastering o consultar por el servicio de registro de obra en SADAIC? Escríbeme desde aquí:</p>
             
-            <form id="contact-form" action="https://formspree.io/f/tuvacioo" method="POST" class="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/xzeddrwl/" method="POST" class="contact-form">
                 <div class="form-group">
                     <label for="email">Tu Correo Electrónico:</label>
                     <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
@@ -461,6 +529,7 @@
                         <option value="Colaboración musical">Colaboración musical</option>
                         <option value="Producción musical">Producción musical</option>
                         <option value="Mezcla y Mastering">Mezcla y Mastering</option>
+                        <option value="Registro de obra en SADAIC">Registro de obra en SADAIC</option>
                         <option value="Otro motivo">Otro motivo</option>
                     </select>
                 </div>
@@ -473,9 +542,10 @@
                 <button type="submit" id="submit-btn" class="submit-btn">Enviar Mensaje</button>
                 
                 <!-- Mensaje de éxito que aparecerá aquí mismo -->
-                <p id="form-success-msg" style="display: none; color: var(--accent-color); font-family: 'masonsansalternate', Arial, sans-serif; margin-top: 1rem; text-align: center; letter-spacing: 1px;">
+                <p id="form-success-msg" role="status" style="display: none; color: var(--accent-color); font-family: 'masonsansalternate', Arial, sans-serif; margin-top: 1rem; text-align: center; letter-spacing: 1px;">
                     ¡Mensaje enviado con éxito! Te responderé pronto.
                 </p>
+                <p id="form-error-msg" class="form-status" role="alert" hidden></p>
             </form>
         </section>
 
@@ -485,5 +555,45 @@
         <p>&copy; 2026 Valen Piccoli. Todos los derechos reservados.</p>
     </footer>
     
+
+    <script>
+    document.querySelectorAll('iframe[data-youtube-src]').forEach((frame) => {
+        if (location.protocol === 'https:' || location.protocol === 'http:') {
+            frame.src = frame.dataset.youtubeSrc;
+        } else {
+            const note = document.createElement('p');
+            note.textContent = 'Abrí este video en YouTube con el botón de abajo. El reproductor integrado está disponible al visitar la web publicada.';
+            frame.replaceWith(note);
+        }
+    });
+    const videoFallback = document.createElement('noscript');
+    videoFallback.textContent = 'Podés ver los videos usando los botones de YouTube.';
+    document.querySelector('#videos').append(videoFallback);
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', async (event) => {
+        if (!window.fetch) return;
+        event.preventDefault();
+        const button = document.getElementById('submit-btn');
+        const success = document.getElementById('form-success-msg');
+        const error = document.getElementById('form-error-msg');
+        button.disabled = true;
+        button.textContent = 'Enviando…';
+        success.style.display = 'none';
+        error.hidden = true;
+        try {
+            const response = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{Accept:'application/json'} });
+            if (!response.ok) throw new Error('No se pudo enviar');
+            form.reset();
+            success.style.display = 'block';
+        } catch (cause) {
+            error.textContent = 'No pudimos confirmar el envío. Revisá tu conexión e intentá de nuevo. También podés contactarme por Instagram.';
+            error.hidden = false;
+        } finally {
+            button.disabled = false;
+            button.textContent = 'Enviar Mensaje';
+        }
+    });
+    </script>
+
 </body>
 </html>
