@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="No Quiere Conmigo Remix. Escuchá la canción de Intimidante y Valen Piccoli en tu plataforma favorita o mirá el visualizer oficial.">
+  <meta property="og:type" content="music.song">
+  <meta property="og:title" content="No Quiere Conmigo Remix — Valen Piccoli">
+  <meta property="og:description" content="Escuchá No Quiere Conmigo Remix y mirá el visualizer oficial.">
+  <meta property="og:image" content="https://valenpiccoli.musica.ar/no-quiere-conmigo-remix/portada.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>No Quiere Conmigo Remix — Valen Piccoli</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preload" as="image" href="portada.webp">
+  <style>
+    :root{color-scheme:dark;font-family:Arial,Helvetica,sans-serif;--bg:#0a0a0a;--panel:#141414;--text:#f7f7f7;--muted:#a5a5a5;--line:#363636;--accent:#d9f5f4}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-width:280px;min-height:100vh;background:var(--bg);color:var(--text)}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 20% 50%,#53535326,transparent 53%),radial-gradient(ellipse at 90% 20%,#6b84831b,transparent 48%);pointer-events:none}
+    a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+    .skip{position:absolute;left:16px;top:-90px;z-index:20;padding:12px;background:white;color:black}.skip:focus{top:16px}
+    .topbar,.footer{max-width:1200px;margin:auto;padding:25px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .topbar{border-bottom:1px solid var(--line)}.artist-logo{display:block;width:206px;max-width:100%;height:auto}
+    .site-link,.footer{font-size:12px;color:var(--muted)}.site-link:hover,.footer a:hover{color:white}.arrow{margin-left:5px;color:var(--accent)}
+    .release{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(38px,6.5vw,96px);align-items:center;max-width:1100px;min-height:calc(100svh - 143px);margin:auto;padding:56px 40px 70px}
+    .artwork{min-width:0;margin:0}.cover-wrap{position:relative;padding:10px;border:1px solid #79797988;background:#ffffff08;box-shadow:0 30px 80px #0009}.cover-wrap::before,.cover-wrap::after{content:"";position:absolute;width:35px;height:35px;border-color:#d9f5f4;border-style:solid;pointer-events:none}.cover-wrap::before{left:-1px;top:-1px;border-width:1px 0 0 1px}.cover-wrap::after{right:-1px;bottom:-1px;border-width:0 1px 1px 0}.cover{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+    .content{min-width:0}.eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 18px;color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase}.eyebrow::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 12px #d9f5f480}
+    h1{max-width:600px;margin:0;font-family:Impact,'Arial Narrow',Arial,sans-serif;font-size:clamp(46px,5.7vw,75px);font-stretch:condensed;font-weight:900;line-height:.95;letter-spacing:.015em;text-transform:uppercase}h1 span{display:block;color:#bcbcbc}
+    .credit{margin:19px 0 0;color:var(--muted);font-size:12px;letter-spacing:.11em;text-transform:uppercase}.credit span{margin:0 8px;color:#5f5f5f}
+    .divider{display:flex;align-items:center;gap:14px;margin:29px 0 25px;color:var(--accent);font-size:11px}.divider::before,.divider::after{content:"";height:1px;flex:1;background:var(--line)}
+    h2{margin:0 0 17px;color:#d1d1d1;font-size:13px;font-weight:400}.links{display:grid;gap:10px}.platform{min-height:65px;padding:12px 17px;display:flex;align-items:center;gap:15px;background:var(--panel);border:1px solid var(--line);border-radius:5px;transition:transform .18s,border-color .18s,background .18s}.platform:hover{transform:translateY(-2px);border-color:#b7dddc88;background:#1d2424}.platform:first-child{border-color:#b7dddc77}.icon{display:grid;place-items:center;flex:none;width:26px;height:26px}.icon svg{display:block;width:25px;height:25px}.platform-name{flex:1;font-size:15px;font-weight:600}.action{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:11px}.action span{color:var(--accent);font-size:18px}
+    .share{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:25px}.share-label{color:var(--muted);font-size:11px}.share button{padding:8px 0;background:none;border:0;color:var(--accent);cursor:pointer;font-size:11px}.share button:hover{color:white}.status{min-height:16px;margin:4px 0 0;text-align:right;color:var(--accent);font-size:11px}.fallback{width:100%;padding:9px 11px;margin-top:8px;background:#111;border:1px solid var(--line);border-radius:4px;color:white}
+    .footer{border-top:1px solid var(--line);font-size:11px}.socials{display:flex;gap:20px}
+    @media(max-width:700px){.topbar,.footer{padding:21px 23px}.artist-logo{width:173px}.site-link{font-size:10px}.release{display:block;max-width:490px;min-height:0;padding:29px 26px 38px}.artwork{max-width:360px;margin:0 auto 35px}.cover-wrap{padding:7px}.eyebrow{font-size:9px}h1{font-size:clamp(45px,12vw,67px)}.credit{font-size:11px}.divider{margin:25px 0 22px}.platform{min-height:62px}.platform-name{font-size:14px}}
+    @media(max-width:340px){.topbar{padding-inline:16px}.artist-logo{width:145px}.release{padding-inline:18px}.action{font-size:10px}.platform{gap:10px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.platform{transition:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#plataformas">Ir a las plataformas</a>
+  <header class="topbar">
+    <a href="https://valenpiccoli.musica.ar/" aria-label="Valen Piccoli, sitio oficial"><img class="artist-logo" src="logo-valen.png" width="3295" height="570" alt="Valen Piccoli"></a>
+    <a class="site-link" href="https://valenpiccoli.musica.ar/">Sitio oficial <span class="arrow" aria-hidden="true">↗</span></a>
+  </header>
+  <main class="release">
+    <figure class="artwork"><div class="cover-wrap"><img class="cover" src="portada.webp" width="640" height="640" alt="Portada de No Quiere Conmigo: tipografía blanca sobre negro, de Intimidante y Valen Piccoli Remix."></div></figure>
+    <section class="content" aria-labelledby="title">
+      <p class="eyebrow">Ya disponible</p>
+      <h1 id="title">No Quiere Conmigo <span>Remix</span></h1>
+      <p class="credit">Intimidante <span aria-hidden="true">/</span> Valen Piccoli</p>
+      <div class="divider" aria-hidden="true">✦</div>
+      <h2 id="plataformas">Elegí dónde escucharlo.</h2>
+      <nav class="links" aria-label="Enlaces de No Quiere Conmigo Remix">
+        <a class="platform" href="https://open.spotify.com/intl-es/track/3NnpkKdrIyIQJdkNhXaWBl?si=5bf089ff87754296" target="_blank" rel="noopener noreferrer" aria-label="Escuchar No Quiere Conmigo Remix en Spotify, abre una nueva pestaña"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1ed760"/><g fill="none" stroke="#09130b" stroke-width="1.5" stroke-linecap="round"><path d="M5 8c5-1.7 10-1 14 1M6 12c4-1.3 8.5-.6 12 1M7 15.7c3.4-1 6.5-.5 9.5.8"/></g></svg></span><span class="platform-name">Spotify</span><span class="action">Escuchar <span aria-hidden="true">↗</span></span></a>
+        <a class="platform" href="https://music.apple.com/es/album/no-quiere-conmigo-remix-single/6818495651" target="_blank" rel="noopener noreferrer" aria-label="Escuchar No Quiere Conmigo Remix en Apple Music, abre una nueva pestaña"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 17V5l11-2v12M10 8l11-2" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="6.5" cy="17.5" rx="4" ry="3" fill="currentColor"/><ellipse cx="17.5" cy="15.5" rx="4" ry="3" fill="currentColor"/></svg></span><span class="platform-name">Apple Music</span><span class="action">Escuchar <span aria-hidden="true">↗</span></span></a>
+        <a class="platform" href="https://music.youtube.com/playlist?list=OLAK5uy_mjuKYD0gUrf8Bp6x4J7u7gWYeah-wPAKs" target="_blank" rel="noopener noreferrer" aria-label="Escuchar No Quiere Conmigo Remix en YouTube Music, abre una nueva pestaña"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#ff4545"/><circle cx="12" cy="12" r="8" fill="none" stroke="white"/><path d="m10 7 7 5-7 5Z" fill="white"/></svg></span><span class="platform-name">YouTube Music</span><span class="action">Escuchar <span aria-hidden="true">↗</span></span></a>
+        <a class="platform" href="https://youtu.be/OlYyEBzirFc?si=OpO9iWyrIG2wTtZ4" target="_blank" rel="noopener noreferrer" aria-label="Ver el visualizer oficial de No Quiere Conmigo Remix en YouTube, abre una nueva pestaña"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="5" fill="#ff4545"/><path d="m10 8 7 4-7 4Z" fill="white"/></svg></span><span class="platform-name">Visualizer oficial</span><span class="action">Ver video <span aria-hidden="true">↗</span></span></a>
+      </nav>
+      <div class="share"><span class="share-label">Compartí este lanzamiento</span><button id="copy-link" type="button">Copiar enlace ↗</button></div>
+      <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+      <input class="fallback" id="copy-fallback" type="url" aria-label="Enlace para compartir" readonly hidden>
+    </section>
+  </main>
+  <footer class="footer"><span>© 2026 Valen Piccoli</span><div class="socials"><a href="https://www.instagram.com/valenpiccoli/" target="_blank" rel="noopener noreferrer">Instagram <span class="arrow" aria-hidden="true">↗</span></a><a href="https://www.youtube.com/@ValenPiccoli" target="_blank" rel="noopener noreferrer">YouTube <span class="arrow" aria-hidden="true">↗</span></a></div></footer>
+  <script>
+    document.getElementById('copy-link').addEventListener('click', async () => {
+      const url = new URL(location.href); url.search = ''; url.hash = '';
+      const status = document.getElementById('copy-status');
+      const fallback = document.getElementById('copy-fallback');
+      try { await navigator.clipboard.writeText(url.href); status.textContent = 'Enlace copiado'; fallback.hidden = true; }
+      catch { fallback.value = url.href; fallback.hidden = false; fallback.focus(); fallback.select(); status.textContent = 'Seleccioná y copiá el enlace'; }
+    });
+  </script>
+</body>
+</html>
