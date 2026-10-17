@@ -32,8 +32,9 @@
     .divider{display:flex;align-items:center;gap:14px;margin:29px 0 25px;color:var(--accent);font-size:11px}.divider::before,.divider::after{content:"";height:1px;flex:1;background:var(--line)}
     h2{margin:0 0 17px;color:#d1d1d1;font-size:13px;font-weight:400}.links{display:grid;gap:10px}.platform{min-height:65px;padding:12px 17px;display:flex;align-items:center;gap:15px;background:var(--panel);border:1px solid var(--line);border-radius:5px;transition:transform .18s,border-color .18s,background .18s}.platform:hover{transform:translateY(-2px);border-color:#b7dddc88;background:#1d2424}.platform:first-child{border-color:#b7dddc77}.icon{display:grid;place-items:center;flex:none;width:26px;height:26px}.icon svg{display:block;width:25px;height:25px}.platform-name{flex:1;font-size:15px;font-weight:600}.action{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:11px}.action span{color:var(--accent);font-size:18px}
     .share{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:25px}.share-label{color:var(--muted);font-size:11px}.share button{padding:8px 0;background:none;border:0;color:var(--accent);cursor:pointer;font-size:11px}.share button:hover{color:white}.status{min-height:16px;margin:4px 0 0;text-align:right;color:var(--accent);font-size:11px}.fallback{width:100%;padding:9px 11px;margin-top:8px;background:#111;border:1px solid var(--line);border-radius:4px;color:white}
+    .video-section{max-width:1100px;margin:0 auto;padding:0 40px 84px}.video-heading{display:flex;align-items:center;gap:18px;margin-bottom:23px}.video-heading::after{content:"";height:1px;flex:1;background:var(--line)}.video-heading h2{margin:0;color:var(--text);font-size:19px;font-weight:600;letter-spacing:.01em}.video-frame{padding:10px;border:1px solid #79797988;background:#ffffff08;box-shadow:0 25px 70px #0007}.video-frame iframe{display:block;width:100%;aspect-ratio:16/9;height:auto;border:0;background:#050505}
     .footer{border-top:1px solid var(--line);font-size:11px}.socials{display:flex;gap:20px}
-    @media(max-width:700px){.topbar,.footer{padding:21px 23px}.artist-logo{width:173px}.site-link{font-size:10px}.release{display:block;max-width:490px;min-height:0;padding:29px 26px 38px}.artwork{max-width:360px;margin:0 auto 35px}.cover-wrap{padding:7px}.eyebrow{font-size:9px}h1{font-size:clamp(45px,12vw,67px)}.credit{font-size:11px}.divider{margin:25px 0 22px}.platform{min-height:62px}.platform-name{font-size:14px}}
+    @media(max-width:700px){.topbar,.footer{padding:21px 23px}.artist-logo{width:173px}.site-link{font-size:10px}.release{display:block;max-width:490px;min-height:0;padding:29px 26px 38px}.artwork{max-width:360px;margin:0 auto 35px}.cover-wrap{padding:7px}.eyebrow{font-size:9px}h1{font-size:clamp(45px,12vw,67px)}.credit{font-size:11px}.divider{margin:25px 0 22px}.platform{min-height:62px}.platform-name{font-size:14px}.video-section{padding:0 26px 54px;max-width:490px}.video-heading h2{font-size:17px}.video-frame{padding:6px}}
     @media(max-width:340px){.topbar{padding-inline:16px}.artist-logo{width:145px}.release{padding-inline:18px}.action{font-size:10px}.platform{gap:10px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.platform{transition:none}}
   </style>
@@ -44,7 +45,8 @@
     <a href="https://valenpiccoli.musica.ar/" aria-label="Valen Piccoli, sitio oficial"><img class="artist-logo" src="logo-valen.png" width="3295" height="570" alt="Valen Piccoli"></a>
     <a class="site-link" href="https://valenpiccoli.musica.ar/">Sitio oficial <span class="arrow" aria-hidden="true">↗</span></a>
   </header>
-  <main class="release">
+  <main>
+    <div class="release">
     <figure class="artwork"><div class="cover-wrap"><img class="cover" src="portada.webp" width="640" height="640" alt="Portada de No Quiere Conmigo: tipografía blanca sobre negro, de Intimidante y Valen Piccoli Remix."></div></figure>
     <section class="content" aria-labelledby="title">
       <p class="eyebrow">Ya disponible</p>
@@ -61,6 +63,13 @@
       <div class="share"><span class="share-label">Compartí este lanzamiento</span><button id="copy-link" type="button">Copiar enlace ↗</button></div>
       <p class="status" id="copy-status" role="status" aria-live="polite"></p>
       <input class="fallback" id="copy-fallback" type="url" aria-label="Enlace para compartir" readonly hidden>
+    </section>
+    </div>
+    <section class="video-section" aria-labelledby="visualizer-title">
+      <div class="video-heading"><h2 id="visualizer-title">Visualizer oficial</h2></div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/OlYyEBzirFc?rel=0" title="No Quiere Conmigo Remix — visualizer oficial en YouTube" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
     </section>
   </main>
   <footer class="footer"><span>© 2026 Valen Piccoli</span><div class="socials"><a href="https://www.instagram.com/valenpiccoli/" target="_blank" rel="noopener noreferrer">Instagram <span class="arrow" aria-hidden="true">↗</span></a><a href="https://www.youtube.com/@ValenPiccoli" target="_blank" rel="noopener noreferrer">YouTube <span class="arrow" aria-hidden="true">↗</span></a></div></footer>
