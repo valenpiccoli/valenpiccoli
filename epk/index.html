@@ -36,7 +36,7 @@
   </header>
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-photo" aria-hidden="true"></div>
-    <div class="hero-inner"><p class="eyebrow" data-i18n="eyebrow">Electronic press kit · Buenos Aires</p><h1 id="hero-title">Valen<br>Piccoli<span class="hero-title-sub" data-i18n="hero_sub">Singer · Producer · Songwriter</span></h1><p class="hero-text" data-i18n="hero_text">Pop atmosférico que transforma emociones cotidianas y paisajes naturales en universos sonoros.</p><div class="hero-actions"><a class="button primary" href="#contact" data-i18n="hero_cta">Contacto profesional</a><a class="button" href="#media" data-i18n="hero_second">Ver videoclips</a></div></div><span class="scroll-note" data-i18n="scroll">Descubrir</span>
+    <div class="hero-inner"><p class="eyebrow" data-i18n="eyebrow">Electronic press kit · Buenos Aires</p><h1 id="hero-title">Valen<br>Piccoli<span class="hero-title-sub" data-i18n="hero_sub">Singer · Producer · Songwriter</span></h1><p class="hero-text" data-i18n="hero_text">Pop atmosférico que transforma emociones cotidianas y paisajes naturales en universos sonoros.</p><div class="hero-actions"><a class="button primary" href="#contact" data-i18n="hero_cta">Contacto profesional</a><a class="button" href="#media" data-i18n="hero_second">Ver videoclips</a></div></div>
   </section>
   <main>
     <section class="section two-col" id="bio"><div><p class="section-tag" data-i18n="bio_tag">Sobre el proyecto</p><h2 class="section-title" data-i18n-html="bio_title">Un recorrido entre lo <em>íntimo</em> y lo inmenso.</h2><div class="bio-copy"><p data-i18n="bio_p1">Valen Piccoli es cantante, productor y compositor de Buenos Aires. Su universo se mueve entre el pop, dream pop, synth pop y pop urbano.</p><p data-i18n="bio_p2">En sus canciones, las experiencias de la vida y los elementos naturales se convierten en una misma narrativa. Con sensibilidad pop como centro, explora también texturas de reggaetón y funk brasileño.</p><p><strong data-i18n="bio_p3">Disponible para shows, prensa y colaboraciones.</strong></p></div></div><div class="portrait-pair"><img class="portrait-main" src="portrait-denim.png" alt="Valen Piccoli" loading="lazy"><img class="portrait-small" src="portrait-nostalgico.jpg" alt="Retrato de Valen Piccoli" loading="lazy"></div></section>
@@ -86,5 +86,154 @@
 <style>
   .collabs { margin: 0 0 20px; padding: 14px 16px; border-left: 2px solid #8ce3de; background: #79e7df0b; color: #d7f1f0; font: 600 12px/1.55 Arial, Helvetica, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
   .hero-text.genre-list { color: #bdeeed; font: 700 11px/1.5 Arial, Helvetica, sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+</style>
+<script>
+  (() => {
+    const language = () => document.documentElement.lang === 'en' ? 'en' : 'es';
+    const labels = {
+      es: {
+        spotifyTag: 'Escuchá en Spotify',
+        spotifyTitle: 'This Is Valen Piccoli',
+        oniricoStreams: '10k+ en Spotify',
+        collectionTitle: 'Aunque en mi mente aún no estés + 19–20',
+        collectionNote: 'Edición compilatoria',
+        liveCta: 'Ver “El Sol” en vivo ↗',
+        videoTitle: 'Videos oficiales',
+        releasesTitle: 'Lanzamientos',
+        liveTitle: 'Presentaciones'
+      },
+      en: {
+        spotifyTag: 'Listen on Spotify',
+        spotifyTitle: 'This Is Valen Piccoli',
+        oniricoStreams: '10k+ on Spotify',
+        collectionTitle: 'Aunque en mi mente aún no estés + 19–20',
+        collectionNote: 'Compilation edition',
+        liveCta: 'Watch “El Sol” live ↗',
+        videoTitle: 'Official videos',
+        releasesTitle: 'Releases',
+        liveTitle: 'Live performances'
+      }
+    };
+
+    const releases = [...document.querySelectorAll('.release')];
+    const releaseArt = [
+      'cover-19-20.jpg',
+      'cover-nostalgico.jpg',
+      'cover-la-tormenta.jpg',
+      'cover-aunque-en-mi-mente-aun-estes.jpg',
+      'cover-onirico.jpg',
+      'cover-aunque-en-mi-mente-aun-estes.jpg'
+    ];
+    releases.forEach((release, index) => {
+      release.classList.add('release-art');
+      release.style.setProperty('--release-art', `url("${releaseArt[index]}")`);
+    });
+    const spotifyAlbums = [
+      'https://open.spotify.com/album/0iOZRG6UWWJFFMjCPpfxel',
+      'https://open.spotify.com/album/17Wy6Be0rQ552nUg7waCuh',
+      'https://open.spotify.com/album/5s6tb2hwJXyEggJZ2BKzUb',
+      'https://open.spotify.com/album/5kr1hyBUV20buqXwfUPo5n',
+      'https://open.spotify.com/album/55pI6ttuJnTuhAYin2TopE',
+      'https://open.spotify.com/album/6EoSsulqjfWTdQyfOmKAxo'
+    ];
+    releases.forEach((release, index) => {
+      const destination = spotifyAlbums[index];
+      if (!destination) return;
+      release.classList.add('release-link');
+      release.setAttribute('role', 'link');
+      release.tabIndex = 0;
+      release.setAttribute('aria-label', `${release.querySelector('.release-title')?.textContent?.trim() || 'Álbum'} en Spotify`);
+      const openAlbum = () => window.open(destination, '_blank', 'noopener');
+      release.addEventListener('click', openAlbum);
+      release.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openAlbum();
+        }
+      });
+    });
+
+    const onirico = releases.find((release) => release.querySelector('.release-title')?.textContent.trim() === 'ONÍRICO');
+    const oniricoNote = document.createElement('span');
+    oniricoNote.className = 'release-note release-streams';
+    if (onirico) onirico.append(oniricoNote);
+
+    const collection = document.querySelector('.release-collection');
+    const collectionTitle = collection?.querySelector('.release-title');
+    const collectionNote = collection?.querySelector('.release-note');
+
+    const secondLiveLink = document.createElement('a');
+    secondLiveLink.className = 'button secondary-live-link';
+    secondLiveLink.href = 'https://www.youtube.com/watch?v=Agje_s_l_0E';
+    secondLiveLink.target = '_blank';
+    secondLiveLink.rel = 'noopener noreferrer';
+    document.querySelector('#live .button')?.after(secondLiveLink);
+
+    const media = document.querySelector('#media');
+    const mediaTitle = media?.querySelector('[data-i18n-html="media_title"]');
+    const releasesTitle = document.querySelector('#music [data-i18n-html="disc_title"]');
+    const liveTitle = document.querySelector('#live [data-i18n-html="live_title"]');
+    const videoList = media?.querySelector('.video-list');
+    const videoData = [
+      { id: 'X9zUW8deTrY', title: 'APAGÓN' },
+      { id: 'jkTm1rY8dV8', title: 'XTASIS' },
+      { id: 'H4B261S25NY', title: 'HÉROE · con RAYZØN' }
+    ];
+    const player = document.createElement('div');
+    player.className = 'epk-video-gallery';
+    player.innerHTML = videoData.map((video) => `<article class="video-preview"><iframe title="${video.title} — videoclip oficial de Valen Piccoli" src="https://www.youtube.com/embed/${video.id}?rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p>${video.title}</p></article>`).join('');
+    if (videoList) videoList.before(player);
+    videoList?.querySelectorAll('.video').forEach((video, index) => {
+      const item = videoData[index];
+      const name = video.querySelector('.video-name');
+      if (name && item) name.textContent = item.title;
+    });
+
+    const spotifySection = document.createElement('section');
+    spotifySection.className = 'spotify-section';
+    spotifySection.innerHTML = '<p class="section-tag spotify-tag"></p><h2 class="section-title spotify-title"></h2><div class="spotify-player"><iframe title="This Is Valen Piccoli en Spotify" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO0TvaL9?utm_source=generator" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>';
+    document.querySelector('#live')?.before(spotifySection);
+
+    const render = () => {
+      const text = labels[language()];
+      if (oniricoNote) oniricoNote.textContent = text.oniricoStreams;
+      if (collectionTitle) collectionTitle.textContent = text.collectionTitle;
+      if (collectionNote) collectionNote.textContent = text.collectionNote;
+      secondLiveLink.textContent = text.liveCta;
+      if (mediaTitle) mediaTitle.textContent = text.videoTitle;
+      if (releasesTitle) releasesTitle.textContent = text.releasesTitle;
+      if (liveTitle) liveTitle.textContent = text.liveTitle;
+      const spotifyTag = spotifySection.querySelector('.spotify-tag');
+      const spotifyTitle = spotifySection.querySelector('.spotify-title');
+      if (spotifyTag) spotifyTag.textContent = text.spotifyTag;
+      if (spotifyTitle) spotifyTitle.textContent = text.spotifyTitle;
+      videoList?.querySelectorAll('.video-name').forEach((name, index) => {
+        if (videoData[index]) name.textContent = videoData[index].title;
+      });
+    };
+    render();
+    document.querySelectorAll('[data-lang]').forEach((button) => button.addEventListener('click', () => setTimeout(render, 0)));
+  })();
+</script>
+<style>
+  [data-i18n-html="bio_title"] { display: none; }
+  .release.release-art { background: linear-gradient(180deg, transparent 38%, rgba(2, 18, 25, .62) 100%); }
+  .release.release-art:before { background-image: linear-gradient(180deg, rgba(2, 20, 27, 0) 0%, rgba(2, 18, 25, .48) 100%), var(--release-art); background-position: center; background-size: cover; opacity: 1; }
+  .release.release-art:hover:before { opacity: 1; }
+  .release-link { cursor: pointer; }
+  .release-streams { color: #d0fbf8; }
+  .spotify-section { width: min(1170px, 100%); margin: 0 auto; padding: 0 42px 112px; }
+  .spotify-player { margin-top: 28px; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #071c25; box-shadow: 0 18px 45px #00000038; }
+  .spotify-player iframe { display: block; width: 100%; height: 352px; border: 0; }
+  .secondary-live-link { margin-top: 12px; }
+  #media.media-grid { grid-template-columns: 1fr; }
+  #media .media-image, #media .video-list { display: none; }
+  .epk-video-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+  .video-preview { margin: 0; overflow: hidden; border: 1px solid var(--line); background: #02090d; box-shadow: 0 18px 42px #00000038; }
+  .video-preview iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+  .video-preview p { margin: 0; padding: 12px 14px; color: #dcfbf9; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  @media(max-width:900px) { .spotify-section { padding: 0 27px 85px; } }
+  @media(max-width:700px) { .epk-video-gallery { grid-template-columns: 1fr; } }
+  @media(max-width:590px) { .spotify-section { padding: 0 22px 68px; } .spotify-player iframe { height: 352px; } }
 </style>
 </html>
