@@ -74,7 +74,10 @@
     if (!availability) return;
     const item = document.createElement('p');
     item.className = 'collabs';
-    const render = () => { item.textContent = translations[document.documentElement.lang] || translations.es; };
+    const render = () => {
+      item.textContent = translations[document.documentElement.lang] || translations.es;
+      if (heroText) heroText.textContent = 'Pop · Dream Pop · Synth Pop · Pop Urbano';
+    };
     availability.parentElement.before(item);
     render();
     document.querySelectorAll('[data-lang]').forEach((button) => button.addEventListener('click', () => setTimeout(render, 0)));
