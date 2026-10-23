@@ -1,2 +1,206 @@
 <!doctype html>
-<title>NOSTÁLGICO — Valen Piccoli</title>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06151d">
+  <meta name="description" content="NOSTÁLGICO, álbum de Valen Piccoli. Escuchá el disco y mirá sus videos musicales y presentaciones en vivo.">
+  <meta property="og:type" content="music.album">
+  <meta property="og:title" content="NOSTÁLGICO — Valen Piccoli">
+  <meta property="og:description" content="Escuchá NOSTÁLGICO y mirá sus videos oficiales y versiones en vivo.">
+  <meta property="og:image" content="https://valenpiccoli.musica.ar/nostalgico/cover-nostalgico.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>NOSTÁLGICO — Valen Piccoli</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #04090f;
+      --night: #07151d;
+      --panel: #0b202a;
+      --cyan: #65ecf2;
+      --blue: #50aee9;
+      --pink: #ff55bd;
+      --paper: #eefcff;
+      --muted: #a6c0c8;
+      --line: rgba(111, 231, 240, .2);
+      --max: 1180px;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ink); }
+    body { margin: 0; min-width: 300px; overflow-x: hidden; color: var(--paper); background: radial-gradient(circle at 85% 14%, rgba(255,85,189,.11), transparent 28rem), var(--ink); }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 30; pointer-events: none; opacity: .045; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--pink); outline-offset: 5px; }
+    img { display: block; max-width: 100%; }
+    .skip { position: absolute; top: -80px; left: 16px; z-index: 50; padding: 10px 14px; background: white; color: black; }
+    .skip:focus { top: 16px; }
+
+    .site-head { position: absolute; z-index: 12; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 28px; width: min(var(--max), 100%); margin: auto; padding: 22px 32px; }
+    .artist-crop { position: relative; width: 230px; height: 92px; overflow: hidden; filter: drop-shadow(0 8px 18px rgba(0,0,0,.7)); }
+    .artist-crop img { position: absolute; inset: 0 auto auto 0; width: 230px; max-width: none; translate: 0 -37px; }
+    .nav { display: flex; align-items: center; gap: 26px; color: #d7f9fa; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .nav a { opacity: .72; transition: .2s ease; }
+    .nav a:hover { color: var(--pink); opacity: 1; }
+
+    .hero { position: relative; min-height: 100svh; display: grid; align-items: end; isolation: isolate; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .hero-bg { position: absolute; inset: -3%; z-index: -4; background: url(cover-nostalgico.jpg) center / cover no-repeat; filter: blur(7px) saturate(1.12); transform: scale(1.08); }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -3; background: linear-gradient(90deg, rgba(3,9,15,.94) 0%, rgba(3,9,15,.68) 48%, rgba(3,9,15,.24) 100%), linear-gradient(0deg, #04090f 0%, transparent 55%, rgba(2,7,12,.4)); }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -2; opacity: .32; background: repeating-linear-gradient(90deg, transparent 0 39px, rgba(101,236,242,.13) 40px, transparent 41px 79px); mask-image: linear-gradient(to bottom, transparent, black 24%, black 75%, transparent); }
+    .orb { position: absolute; z-index: -1; width: min(62vw, 720px); aspect-ratio: 1; right: -8vw; bottom: -18vw; border: 1px solid rgba(101,236,242,.32); border-radius: 50%; box-shadow: 0 0 0 70px rgba(80,174,233,.05), 0 0 0 140px rgba(255,85,189,.045), inset 0 0 90px rgba(101,236,242,.12); }
+    .hero-inner { width: min(var(--max), 100%); margin: auto; padding: 150px 32px 76px; }
+    .album-crop { position: relative; width: min(690px, 92vw); height: clamp(170px, 25vw, 240px); margin-left: -22px; overflow: hidden; filter: drop-shadow(0 20px 30px rgba(0,0,0,.58)); }
+    .album-crop img { position: absolute; left: 0; top: 0; width: 100%; max-width: none; translate: 0 -57%; }
+    .hero-kicker { margin: 9px 0 0; color: var(--cyan); font-size: 10px; font-weight: 900; letter-spacing: .24em; text-transform: uppercase; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0 20px; border: 1px solid var(--cyan); color: var(--paper); font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; transition: .2s ease; }
+    .btn.primary { background: var(--cyan); color: #041116; }
+    .btn:hover { translate: 0 -2px; border-color: var(--pink); background: var(--pink); color: #16060f; }
+    .year { position: absolute; right: max(32px, calc((100vw - var(--max)) / 2 + 32px)); bottom: 70px; color: transparent; -webkit-text-stroke: 1px rgba(238,252,255,.48); font-size: clamp(64px, 11vw, 150px); font-weight: 900; line-height: .7; letter-spacing: -.08em; }
+
+    .section { width: min(var(--max), 100%); margin: auto; padding: 108px 32px; }
+    .eyebrow { margin: 0 0 16px; color: var(--cyan); font-size: 10px; font-weight: 900; letter-spacing: .25em; text-transform: uppercase; }
+    .title { margin: 0; color: var(--paper); font-size: clamp(42px, 6vw, 78px); line-height: .92; letter-spacing: -.065em; text-transform: uppercase; }
+    .title em { color: var(--pink); font-style: normal; text-shadow: -3px 0 var(--cyan); }
+
+    .listen { background: linear-gradient(135deg, #050b11, #0a1d27 58%, #101321); border-bottom: 1px solid var(--line); }
+    .listen-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: 64px; align-items: center; }
+    .cover-wrap { position: relative; }
+    .cover { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid rgba(101,236,242,.33); box-shadow: -15px 15px 0 rgba(80,174,233,.1), 15px -15px 0 rgba(255,85,189,.09), 0 32px 80px rgba(0,0,0,.55); image-rendering: auto; }
+    .cover-wrap::after { content: "2023"; position: absolute; right: -14px; bottom: 24px; padding: 8px 11px; background: var(--pink); color: #190710; font-size: 10px; font-weight: 900; letter-spacing: .18em; }
+    .spotify { margin-top: 30px; padding: 8px; border: 1px solid var(--line); background: rgba(101,236,242,.05); box-shadow: 0 28px 70px rgba(0,0,0,.3); }
+    .spotify iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 3px; }
+    .spotify-link { display: inline-flex; margin-top: 16px; color: var(--cyan); font-size: 10px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+
+    .video-section { position: relative; overflow: hidden; }
+    .video-section::before { content: ""; position: absolute; width: 520px; aspect-ratio: 1; left: -300px; top: 120px; border-radius: 50%; background: var(--blue); opacity: .08; filter: blur(70px); }
+    .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; margin-top: 50px; }
+    .video-card { margin: 0; border: 1px solid var(--line); background: #08151c; box-shadow: 0 24px 55px rgba(0,0,0,.28); overflow: hidden; }
+    .video-card:first-child { grid-column: 1 / -1; }
+    .video-card iframe { display: block; width: 100%; aspect-ratio: 16/9; border: 0; background: #020506; }
+    .video-card figcaption { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 17px 19px; }
+    .video-card strong { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+    .video-card span { color: var(--pink); font-size: 9px; font-weight: 900; letter-spacing: .15em; text-align: right; text-transform: uppercase; }
+
+    .live { border-block: 1px solid var(--line); background: linear-gradient(120deg, #07141c, #101125 70%, #140b1a); }
+    .live-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; margin-top: 50px; }
+    .live .video-card:first-child { grid-column: auto; }
+
+    .footer { border-top: 1px solid var(--line); background: #03070b; }
+    .footer-inner { width: min(var(--max), 100%); margin: auto; padding: 42px 32px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .footer strong { color: var(--cyan); font-size: 12px; letter-spacing: .17em; text-transform: uppercase; }
+    .footer small { display: block; margin-top: 8px; color: #718b94; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 20px; color: #9ab6be; font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-links a:hover { color: var(--pink); }
+
+    @media (max-width: 780px) {
+      .site-head { padding: 20px; }
+      .artist-crop { width: 168px; height: 68px; }
+      .artist-crop img { width: 168px; translate: 0 -27px; }
+      .nav a:not(:last-child) { display: none; }
+      .hero-inner { padding: 130px 20px 66px; }
+      .album-crop { width: calc(100vw - 34px); height: clamp(145px, 38vw, 205px); margin-left: -3px; }
+      .year { right: 20px; bottom: 63px; opacity: .5; }
+      .section { padding: 78px 20px; }
+      .listen-grid { grid-template-columns: 1fr; gap: 58px; }
+      .cover-wrap { width: min(480px, 90vw); margin: auto; }
+      .video-grid, .live-grid { grid-template-columns: 1fr; }
+      .video-card:first-child { grid-column: auto; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-links { justify-content: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#escuchar">Ir al contenido</a>
+  <header class="site-head">
+    <a href="https://valenpiccoli.musica.ar/" class="artist-crop" aria-label="Ir al sitio oficial de Valen Piccoli"><img src="logos-nostalgico-original.png" alt="Valen Piccoli"></a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#videos">Videos</a>
+      <a href="#en-vivo">En vivo</a>
+      <a href="https://valenpiccoli.musica.ar/epk/">EPK ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="NOSTÁLGICO">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="orb" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="album-crop" role="img" aria-label="NOSTÁLGICO"><img src="logos-nostalgico-original.png" alt=""></div>
+        <p class="hero-kicker">Valen Piccoli · Álbum · 2023</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#escuchar">Escuchar el álbum</a>
+          <a class="btn" href="#videos">Ver videos</a>
+        </div>
+      </div>
+      <div class="year" aria-hidden="true">23</div>
+    </section>
+
+    <section class="listen" id="escuchar">
+      <div class="section listen-grid">
+        <div class="cover-wrap"><img class="cover" src="cover-nostalgico.jpg" alt="Portada del álbum NOSTÁLGICO de Valen Piccoli" width="300" height="300"></div>
+        <div>
+          <p class="eyebrow">Escuchar</p>
+          <h1 class="title">NOSTÁLGICO<br><em>completo</em></h1>
+          <div class="spotify">
+            <iframe title="NOSTÁLGICO de Valen Piccoli en Spotify" src="https://open.spotify.com/embed/album/17Wy6Be0rQ552nUg7waCuh?utm_source=generator&theme=0" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </div>
+          <a class="spotify-link" href="https://open.spotify.com/intl-es/album/17Wy6Be0rQ552nUg7waCuh" target="_blank" rel="noopener noreferrer">Abrir en Spotify ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section" id="videos">
+      <div class="section">
+        <p class="eyebrow">Videos musicales</p>
+        <h2 class="title">Videos<br><em>oficiales</em></h2>
+        <div class="video-grid">
+          <figure class="video-card">
+            <iframe title="NOSTÁLGICO — video musical" src="https://www.youtube.com/embed/LtbGrKnX81Y?rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <figcaption><strong>NOSTÁLGICO</strong><span>Video musical</span></figcaption>
+          </figure>
+          <figure class="video-card">
+            <iframe title="CIEN MIL A CERO — video musical" src="https://www.youtube.com/embed/q0UcIAdOOu8?rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <figcaption><strong>CIEN MIL A CERO</strong><span>Video musical</span></figcaption>
+          </figure>
+          <figure class="video-card">
+            <iframe title="¿QUÉ PASÓ? — AI music video" src="https://www.youtube.com/embed/iRznfCR_HI8?rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <figcaption><strong>¿QUÉ PASÓ?</strong><span>AI Music Video</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="live" id="en-vivo">
+      <div class="section">
+        <p class="eyebrow">Presentaciones</p>
+        <h2 class="title">Versiones<br><em>en vivo</em></h2>
+        <div class="live-grid">
+          <figure class="video-card">
+            <iframe title="¿QUÉ PASÓ? — versión en vivo" src="https://www.youtube.com/embed/a3qz7ExYB-c?rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <figcaption><strong>¿QUÉ PASÓ?</strong><span>Versión en vivo</span></figcaption>
+          </figure>
+          <figure class="video-card">
+            <iframe title="EL SOL — versión en vivo" src="https://www.youtube.com/embed/Agje_s_l_0E?rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <figcaption><strong>EL SOL</strong><span>Versión en vivo</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>Valen Piccoli</strong><small>NOSTÁLGICO · 2023</small></div>
+      <div class="footer-links">
+        <a href="https://open.spotify.com/intl-es/album/17Wy6Be0rQ552nUg7waCuh" target="_blank" rel="noopener noreferrer">Spotify ↗</a>
+        <a href="https://www.youtube.com/@ValenPiccoli" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+        <a href="https://www.instagram.com/valenpiccoli/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a href="https://valenpiccoli.musica.ar/epk/">EPK ↗</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
