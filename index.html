@@ -332,6 +332,133 @@
         @media (min-width:768px) { .video-grid { grid-template-columns:1fr 1fr; } }
         @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
 
+        /* MENÚ DESPLEGABLE */
+        body.menu-open { overflow: hidden; }
+        .site-nav { flex-wrap: nowrap; padding: 0.8rem 1rem; }
+        .site-nav .nav-brand { position: relative; z-index: 1004; }
+        .site-nav .nav-brand img { height: 30px; }
+        .menu-toggle {
+            position: relative;
+            z-index: 1004;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-content: center;
+            gap: 6px;
+            padding: 0;
+            border: 1px solid rgba(0, 229, 255, 0.42);
+            border-radius: 50%;
+            color: var(--text-color);
+            background: rgba(8, 10, 15, 0.72);
+            cursor: pointer;
+            transition: border-color .25s ease, background-color .25s ease;
+        }
+        .menu-toggle:hover { border-color: var(--accent-color); background: rgba(0, 229, 255, 0.1); }
+        .menu-toggle span {
+            display: block;
+            width: 21px;
+            height: 2px;
+            border-radius: 2px;
+            background: currentColor;
+            transform-origin: center;
+            transition: transform .28s ease, opacity .2s ease;
+        }
+        .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .menu-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            background: rgba(0, 4, 8, .72);
+            backdrop-filter: blur(5px);
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+        .menu-panel {
+            position: fixed;
+            z-index: 1002;
+            top: 0;
+            right: 0;
+            width: min(470px, 100%);
+            height: 100dvh;
+            overflow-y: auto;
+            padding: 105px clamp(26px, 6vw, 56px) 38px;
+            border-left: 1px solid rgba(0, 229, 255, .22);
+            background: linear-gradient(155deg, rgba(8, 10, 15, .99), rgba(10, 28, 36, .99));
+            box-shadow: -30px 0 80px rgba(0, 0, 0, .5);
+            transform: translateX(102%);
+            transition: transform .36s cubic-bezier(.22, 1, .36, 1);
+        }
+        .site-nav.is-open .menu-backdrop { opacity: 1; visibility: visible; }
+        .site-nav.is-open .menu-panel { transform: translateX(0); }
+        .menu-kicker {
+            margin: 0 0 1.1rem;
+            color: var(--accent-color);
+            font: 700 .7rem/1 'masonsansalternate', Arial, sans-serif;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+        .menu-title {
+            margin: 0 0 2.2rem;
+            color: #fff;
+            font: 400 clamp(2.5rem, 8vw, 4.6rem)/.86 'masonsansalternate', Arial, sans-serif;
+            letter-spacing: -.04em;
+            text-transform: uppercase;
+        }
+        .menu-group { padding: 1.2rem 0; border-top: 1px solid rgba(0, 229, 255, .16); }
+        .menu-group h2 {
+            margin: 0 0 .65rem;
+            padding: 0;
+            border: 0;
+            color: #738698;
+            font: 700 .64rem/1.3 'masonsansalternate', Arial, sans-serif;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+        .menu-list { display: grid; gap: .15rem; margin: 0; padding: 0; list-style: none; }
+        .menu-list a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: .58rem 0;
+            color: var(--text-color);
+            font: 400 1.12rem/1.25 'masonsansalternate', Arial, sans-serif;
+            text-decoration: none;
+            transition: color .2s ease, transform .2s ease;
+        }
+        .menu-list a::after { content: "↗"; color: var(--accent-color); font: 400 .8rem/1 Arial, sans-serif; opacity: .65; }
+        .menu-list a[href^="#"]::after { content: "↓"; }
+        .menu-list a:hover { color: var(--accent-color); transform: translateX(4px); }
+        .menu-epk {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding: 1rem 1.1rem;
+            border: 1px solid var(--accent-color);
+            color: #071116;
+            background: var(--accent-color);
+            font: 700 .82rem/1 'masonsansalternate', Arial, sans-serif;
+            letter-spacing: .12em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .menu-socials { display: flex; gap: .7rem; padding-top: 1.5rem; }
+        .menu-socials a { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #324252; border-radius: 50%; }
+        .menu-socials img { width: 20px; height: 20px; object-fit: contain; }
+        .site-nav + .hero { padding-top: 78px; }
+        @media (min-width: 768px) {
+            .site-nav { padding: 1rem 2rem; }
+            .site-nav .nav-brand img { height: 36px; }
+        }
+        @media (max-width: 767px) {
+            .site-nav { position: fixed; gap: 1rem; }
+            .site-nav + .hero { padding-top: 74px; }
+        }
+
     </style>
 
     <link rel="canonical" href="https://valenpiccoli.github.io/valenpiccoli/">
@@ -351,26 +478,46 @@
 <body>
 
     <!-- BARRA SUPERIOR DE NAVEGACIÓN -->
-    <nav aria-label="Navegación principal">
+    <nav class="site-nav" aria-label="Navegación principal">
         <a href="#inicio" class="nav-brand">
             <img src="logo.png" alt="Valen Piccoli">
         </a>
-        
-        <ul class="nav-links">
-            <li><a href="#inicio">INICIO</a></li>
-            <li><a href="#musica">MÚSICA</a></li>
-            <li><a href="#videos">VIDEOS</a></li>
-            <li><a href="#biografia">BIO</a></li>
-            <li><a href="#galeria">FOTOS</a></li>
-            <li><a href="#producciones">PROD</a></li>
-            <li><a href="#contacto">CONTACTO</a></li>
-        </ul>
 
-        <div class="nav-socials">
-            <a href="https://www.instagram.com/valenpiccoli/" target="_blank" rel="noopener noreferrer" title="Instagram"><img src="ig.png" alt="Instagram"></a>
-            <a href="https://www.tiktok.com/@valenpiccoli" target="_blank" rel="noopener noreferrer" title="TikTok"><img src="tk.png" alt="TikTok"></a>
-            <a href="https://www.youtube.com/@ValenPiccoli" target="_blank" rel="noopener noreferrer" title="YouTube"><img src="yt.png" alt="YouTube"></a>
-            <a href="https://open.spotify.com/intl-es/artist/1BG4eYjmjs4ekJtvbGXePK" target="_blank" rel="noopener noreferrer" title="Spotify"><img src="sp.png" alt="Spotify"></a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="site-menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="menu-backdrop" aria-hidden="true"></div>
+        <div class="menu-panel" id="site-menu" aria-hidden="true">
+            <p class="menu-kicker">Valen Piccoli</p>
+            <p class="menu-title">Explorar</p>
+            <div class="menu-group">
+                <h2>Esta página</h2>
+                <ul class="menu-list">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#musica">Música</a></li>
+                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#biografia">Biografía</a></li>
+                    <li><a href="#galeria">Fotos</a></li>
+                    <li><a href="#producciones">Producciones</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="menu-group">
+                <h2>Álbumes</h2>
+                <ul class="menu-list">
+                    <li><a href="/onirico/">ONÍRICO</a></li>
+                    <li><a href="/nostalgico/">NOSTÁLGICO</a></li>
+                    <li><a href="/la-tormenta/">LA TORMENTA</a></li>
+                    <li><a href="/aemmae/">AEMMAE + 19+20</a></li>
+                </ul>
+            </div>
+            <a class="menu-epk" href="/epk/"><span>Electronic Press Kit</span><span>EPK ↗</span></a>
+            <div class="menu-socials" aria-label="Redes sociales">
+                <a href="https://www.instagram.com/valenpiccoli/" target="_blank" rel="noopener noreferrer" title="Instagram"><img src="ig.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@valenpiccoli" target="_blank" rel="noopener noreferrer" title="TikTok"><img src="tk.png" alt="TikTok"></a>
+                <a href="https://www.youtube.com/@ValenPiccoli" target="_blank" rel="noopener noreferrer" title="YouTube"><img src="yt.png" alt="YouTube"></a>
+                <a href="https://open.spotify.com/intl-es/artist/1BG4eYjmjs4ekJtvbGXePK" target="_blank" rel="noopener noreferrer" title="Spotify"><img src="sp.png" alt="Spotify"></a>
+            </div>
         </div>
     </nav>
 
@@ -556,6 +703,28 @@
     
 
     <script>
+    const siteNav = document.querySelector('.site-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuPanel = document.getElementById('site-menu');
+    const menuBackdrop = document.querySelector('.menu-backdrop');
+    const setMenu = (open) => {
+        if (open) menuPanel.scrollTop = 0;
+        siteNav.classList.toggle('is-open', open);
+        document.body.classList.toggle('menu-open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        menuPanel.setAttribute('aria-hidden', String(!open));
+    };
+    menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
+    menuBackdrop.addEventListener('click', () => setMenu(false));
+    menuPanel.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+            setMenu(false);
+            menuToggle.focus();
+        }
+    });
+
     document.querySelectorAll('iframe[data-youtube-src]').forEach((frame) => {
         if (location.protocol === 'https:' || location.protocol === 'http:') {
             frame.src = frame.dataset.youtubeSrc;
